@@ -14,7 +14,7 @@
             <li class="menu-header">Dashboard</li>
             @endif
             @if (Auth::user()->pin !== '44156')
-            <li class="@if (Request::segment(1)=='akun' ) active @endif"><a class="nav-link"
+            <li class="@if (Request::segment(1)=='akun' ) active @endif"><a class="nav-link" target="_blank"
                     href="{{ route('akun.index') }}"><i class="fas fa-history"></i>
                     <span>Daftar Pinjamanku</span></a></li>
             @endif
@@ -107,7 +107,7 @@
             </a>
             @endif
             @if (Auth::user()->pin !== '44156')
-            <a href="{{ route('buku.index') }}" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a href="{{ route('buku.index') }}" target="_blank" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-shopping-cart"></i> Katalog
             </a>
             @endif
