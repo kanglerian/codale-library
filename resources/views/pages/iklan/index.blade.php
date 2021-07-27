@@ -103,11 +103,11 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Judul Iklan :</label>
-                            <input type="text" class="form-control" name="iklan" placeholder="Masukan Judul Iklan...">
+                            <input type="text" class="form-control" name="iklan" placeholder="Masukan Judul Iklan..." required>
                         </div>
                         <div class="form-group">
                             <label>Gambar :</label>
-                            <input type="file" class="form-control-file" name="gambar" accept="image/*">
+                            <input type="file" class="form-control-file" name="gambar" accept="image/*" required>
                         </div>
                         <div class="form-group">
                             <label>Link :</label>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="form-group">
                             <label>Status :</label>
-                            <select class="form-control" name="status">
+                            <select class="form-control" name="status" required>
                                 <option>Pilih</option>
                                 <option value="Aktif">Aktif</option>
                                 <option value="Belum">Belum</option>

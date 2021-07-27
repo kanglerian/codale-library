@@ -103,15 +103,15 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Judul :</label>
-                            <input type="text" class="form-control" name="judul" placeholder="Masukan Judul...">
+                            <input type="text" class="form-control" name="judul" placeholder="Masukan Judul..." required>
                         </div>
                         <div class="form-group">
                             <label>Kode Video Youtube :</label>
-                            <input type="text" class="form-control" name="video" placeholder="Masukan kode embed video...">
+                            <input type="text" class="form-control" name="video" placeholder="Masukan kode embed video..." required>
                         </div>
                         <div class="form-group">
                             <label>Status :</label>
-                            <select class="form-control" name="status">
+                            <select class="form-control" name="status" required>
                                 <option>Pilih</option>
                                 <option value="Aktif">Aktif</option>
                                 <option value="Belum">Belum</option>

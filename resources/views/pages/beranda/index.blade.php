@@ -103,7 +103,6 @@ echo date('Y-m-d\ H:i:s'); ?>" class="form-control" name="waktu">
                                 <div class="row justify-content-center">
                                     <div class="col-10 bg-welas px-2 rounded">
                                         <p style="line-height:normal;" class="pt-2">{{ $komen->komentar }}</p>
-                                        <hr style="margin-bottom: 2px;">
                                         @if (Auth::user()->id === $komen->id_pelanggan)
                                         <form action="{{ route('komentar.update',$komen->id) }}" method="POST" style="display: inline">
                                             @csrf
