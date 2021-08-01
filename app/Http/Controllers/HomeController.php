@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\Iklan;
 use App\Models\Informasi;
 use Illuminate\Http\Request;
 
@@ -14,12 +15,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {    
+        $banner = Iklan::all();
         $info = Informasi::orderBy('id','ASC')->get();
         $data = Buku::orderBy('id','DESC')->take(3)->get();
         return view('pages.landing.index')->with([
             'data' => $data,
-            'info' => $info
+            'info' => $info,
+            'banner' => $banner
         ]);
     }
 

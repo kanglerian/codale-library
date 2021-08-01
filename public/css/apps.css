@@ -47,6 +47,12 @@ a {
     overflow: hidden!important;
     text-overflow: ellipsis!important;
 }
+.book-desc {
+    height: 110px;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+}
+
 
 .fixed {
     position:fixed !important;

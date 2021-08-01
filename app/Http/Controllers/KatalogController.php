@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KatalogController extends Controller
@@ -12,8 +14,13 @@ class KatalogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('pages.landing.katalog');
+    {   
+        $kategori = Kategori::all();
+        $data = Buku::all();
+        return view('pages.landing.katalog')->with([
+            'data' => $data,
+            'kategori' => $kategori
+        ]);
     }
 
     /**

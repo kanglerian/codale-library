@@ -84,7 +84,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-warning btn-sm"><i
                                                         class="fas fa-edit"></i></button>
-                                                <form action="{{ route('donasi.destroy',$item->id) }}" method="POST" style="display: inline">
+                                                <form action="#" method="POST" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"><i

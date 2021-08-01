@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-white shadow bg-white fs-3 fixed-top">
+<nav class="navbar navbar-expand-md navbar-light shadow bg-white fs-3 fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('codalib.svg') }}" height="25" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -25,19 +25,24 @@
                     <a class="nav-link" href="#">Tentang</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto text-center">
-                <li class="nav-item my-1 mx-1">
-                    <a class="nav-link btn btn-white btn-sm px-4 rounded-double" href="{{ route('login') }}">Masuk</a>
-                </li>
-                <li class="nav-item my-1 mx-1">
-                    <a class="
-              nav-link
-              btn btn-outline-white btn-sm
-              px-4
-              rounded-double
-            " href="{{ route('register') }}">Daftar</a>
-                </li>
-            </ul>
+            @if (Route::has('login'))
+                <ul class="navbar-nav ml-auto text-center">
+                    @auth
+                    <li class="nav-item my-1 mx-1">
+                        <a class="nav-link btn btn-primary text-white btn-sm px-4 rounded-double"
+                            href="{{ route('beranda.index') }}">Dashboard</a>
+                    </li>
+                    @else
+                    <li class="nav-item my-1 mx-1">
+                        <a class="nav-link btn btn-white btn-sm px-4 rounded-double"
+                            href="{{ route('login') }}">Masuk</a>
+                    </li>
+                    <li class="nav-item my-1 mx-1">
+                        <a class="nav-link btn btn-outline-white btn-sm px-4 rounded-double" href="{{ route('register') }}">Daftar</a>
+                    </li>
+                    @endauth
+                </ul>
+            @endif
         </div>
     </div>
 </nav>
