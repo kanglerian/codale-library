@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('landing');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('penulis/profil','PenulisController@profile')->name('penulis.profile');
 Route::get('penerbit/profil','PenerbitController@profile')->name('penerbit.profile');
 Route::get('buku/detail','BukuController@detail')->name('buku.detail');
@@ -31,6 +26,8 @@ Route::delete('komentar/hapus','BerandaController@hapus')->name('hapus');
 
 Auth::routes(['register' => true]);
 
+Route::resource('landing', HomeController::class);
+Route::resource('katalog', KatalogController::class);
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 Route::resource('buku', BukuController::class)->middleware('auth');
 Route::resource('kategori', KategoriController::class)->middleware('auth');
@@ -39,7 +36,6 @@ Route::resource('penerbit', PenerbitController::class)->middleware('auth');
 Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
 Route::resource('baca', BacaController::class)->middleware('auth');
 Route::resource('member', MemberController::class)->middleware('auth');
-Route::resource('donasi', DonasiController::class)->middleware('auth');
 Route::resource('profile', ProfileController::class)->middleware('auth');
 Route::resource('akun', MyAccountController::class)->middleware('auth');
 Route::resource('beranda', BerandaController::class)->middleware('auth');
