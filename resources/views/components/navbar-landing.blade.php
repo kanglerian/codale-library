@@ -27,7 +27,7 @@
             </ul>
             <ul class="navbar-nav ml-auto text-center">
                 <li class="nav-item my-1 mx-1">
-                    <a class="nav-link btn btn-white btn-sm px-4 rounded-double" href="#">Masuk</a>
+                    <a class="nav-link btn btn-white btn-sm px-4 rounded-double" href="{{ route('login') }}">Masuk</a>
                 </li>
                 <li class="nav-item my-1 mx-1">
                     <a class="
@@ -35,7 +35,7 @@
               btn btn-outline-white btn-sm
               px-4
               rounded-double
-            " href="#">Daftar</a>
+            " href="{{ route('register') }}">Daftar</a>
                 </li>
             </ul>
         </div>
