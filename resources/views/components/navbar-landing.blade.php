@@ -16,10 +16,10 @@
                     <a class="nav-link @if (Request::segment(1)=='katalog' ) active @endif" href="{{ route('katalog.index') }}">Katalog</a>
                 </li>
                 <li class="nav-item my-1 mx-1">
-                    <a class="nav-link" href="kelas.html">Kelas Online</a>
+                    <a class="nav-link @if (Request::segment(1)=='kelas' ) active @endif" href="{{ route('kelas.index') }}">Kelas Online</a>
                 </li>
                 <li class="nav-item my-1 mx-1">
-                    <a class="nav-link" href="blog.html">E-Book</a>
+                    <a class="nav-link @if (Request::segment(1)=='artikel' ) active @endif" href="{{ route('artikel.index') }}">Artikel</a>
                 </li>
                 <li class="nav-item my-1 mx-1">
                     <a class="nav-link" href="#">Tentang</a>

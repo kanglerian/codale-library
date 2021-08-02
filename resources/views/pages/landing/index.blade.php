@@ -193,7 +193,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <a href="kelas.html">
+                <a href="{{ route('katalog.index') }}">
                     <div class="
                                                                           row
                                                                           justify-content-between
@@ -231,7 +231,7 @@
                     </div>
                     @endforeach
                     <div class="col-12 text-center fs-3">
-                        <a href="kelas.html">Lihat selengkapnya</a>
+                        <a href="{{ route('katalog.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
             </div>
