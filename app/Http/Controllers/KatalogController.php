@@ -17,7 +17,7 @@ class KatalogController extends Controller
     {   
         $kategori = Kategori::all();
         $data = Buku::all();
-        return view('pages.landing.katalog')->with([
+        return view('pages.client.katalog.index')->with([
             'data' => $data,
             'kategori' => $kategori
         ]);

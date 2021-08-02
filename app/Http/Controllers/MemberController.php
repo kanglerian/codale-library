@@ -22,7 +22,7 @@ class MemberController extends Controller
         if (Auth::user()->pin == 44156) {
             $total = User::all()->count();
             $data = User::all();
-            return view('pages.member.index')->with([
+            return view('pages.admin.member.index')->with([
                 'total' => $total,
                 'data' => $data
 
@@ -85,7 +85,7 @@ class MemberController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('pages.member.edit')->with([
+        return view('pages.admin.member.edit')->with([
             'user' => $user
         ]);
     }

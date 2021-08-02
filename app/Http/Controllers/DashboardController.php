@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $totalPenulis = Penulis::all()->count();
         $totalBuku = Buku::all()->count();
         $pinjaman = Pinjaman::latest()->take(5)->get();
-        return view('pages.dashboard.index')->with([
+        return view('pages.admin.dashboard.index')->with([
             'totalBuku' => $totalBuku,
             'totalPenulis' => $totalPenulis,
             'totalMember' => $totalMember,

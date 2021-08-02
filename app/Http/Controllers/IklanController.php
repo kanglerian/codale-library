@@ -15,7 +15,7 @@ class IklanController extends Controller
     public function index()
     {
         $data = Iklan::all();
-        return view('pages.iklan.index')->with([
+        return view('pages.admin.iklan.index')->with([
             'data' => $data
         ]);
     }

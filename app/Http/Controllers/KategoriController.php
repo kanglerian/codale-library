@@ -19,7 +19,7 @@ class KategoriController extends Controller
         if (Auth::user()->pin == 44156) {
             $total = Kategori::all()->count();
             $data = DB::table('kategori')->paginate(5);
-            return view('pages.books.kategori')->with([
+            return view('pages.admin.books.kategori')->with([
                 'data' => $data,
                 'total' => $total
             ]);
@@ -75,7 +75,7 @@ class KategoriController extends Controller
     {
         // return view('pages.books.edit-kategori');
         $item = Kategori::findOrFail($id);
-        return view('pages.books.edit-kategori')->with([
+        return view('pages.admin.books.edit-kategori')->with([
             'item' => $item
         ]);
     }

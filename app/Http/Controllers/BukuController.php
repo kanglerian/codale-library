@@ -25,7 +25,7 @@ class BukuController extends Controller
             $penulis = Penulis::all();
             $penerbit = Penerbit::all();
             $data = Buku::orderBy('status','DESC')->get();
-            return view('pages.books.index')->with([
+            return view('pages.admin.books.index')->with([
                 'data' => $data,
                 'kategori' => $kategori,
                 'penulis' => $penulis,
@@ -47,7 +47,7 @@ class BukuController extends Controller
             $kategori = Kategori::all();
             $penulis = Penulis::all();
             $penerbit = Penerbit::all();
-            return view('pages.books.create')->with([
+            return view('pages.admin.books.create')->with([
                 'kategori' => $kategori,
                 'penulis' => $penulis,
                 'penerbit' => $penerbit,
@@ -99,7 +99,7 @@ class BukuController extends Controller
         $penulis = Penulis::all();
         $penerbit = Penerbit::all();
         $item = Buku::findOrFail($id);
-        return view('pages.books.detail')->with([
+        return view('pages.admin.books.detail')->with([
             'item' => $item,
             'kategori' => $kategori,
             'penulis' => $penulis,

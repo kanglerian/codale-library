@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
@@ -12,8 +14,13 @@ class ArtikelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('pages.landing.artikel');
+    {   
+        $data = Article::all();
+        $kategori = Kategori::all();
+        return view('pages.client.artikel.artikel')->with([
+            'data' => $data,
+            'kategori' => $kategori
+        ]);
     }
 
     /**
@@ -45,7 +52,10 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Article::findOrFail($id);
+        return view('pages.client.artikel.detail-artikel')->with([
+            'item' => $item
+        ]);
     }
 
     /**

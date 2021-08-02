@@ -15,7 +15,7 @@ class InformasiController extends Controller
     public function index()
     {   
         $data = Informasi::all();
-        return view('pages.informasi.index')->with([
+        return view('pages.admin.informasi.index')->with([
             'data' => $data
         ]);
     }

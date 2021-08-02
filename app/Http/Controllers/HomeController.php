@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Buku;
 use App\Models\Iklan;
 use App\Models\Informasi;
@@ -15,14 +16,16 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
+    {   
+        $artikel = Article::all();
         $banner = Iklan::all();
         $info = Informasi::orderBy('id','ASC')->get();
         $data = Buku::orderBy('id','DESC')->take(3)->get();
-        return view('pages.landing.index')->with([
+        return view('pages.client.landing.index')->with([
             'data' => $data,
             'info' => $info,
-            'banner' => $banner
+            'banner' => $banner,
+            'artikel' => $artikel
         ]);
     }
 

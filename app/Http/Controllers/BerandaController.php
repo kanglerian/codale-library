@@ -22,7 +22,7 @@ class BerandaController extends Controller
         $iklan = Iklan::where('status','Aktif')->latest()->take(2)->get();
         $comments = DetailStatus::all();
         $data = Status::orderBy('id','DESC')->get();
-        return view('pages.beranda.index')->with([
+        return view('pages.admin.beranda.index')->with([
             'data' => $data,
             'comments' => $comments,
             'iklan' => $iklan,

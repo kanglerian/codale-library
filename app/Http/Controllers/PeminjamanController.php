@@ -34,7 +34,7 @@ class PeminjamanController extends Controller
             $jumlahBuku = Buku::where('status', 'Tersedia')->count();
             $buku = Buku::where('status', 'Tersedia')->get();
             $data = Pinjaman::all();
-            return view('pages.peminjaman.index')->with([
+            return view('pages.admin.peminjaman.index')->with([
                 'data' => $data,
                 'kategori' => $kategori,
                 'penulis' => $penulis,
@@ -153,7 +153,7 @@ class PeminjamanController extends Controller
         $totalPinjam = Pinjaman::where('id_transaksi', $trid)->count();
         $data = Pinjaman::where('id_transaksi', $trid)->get();
         $item = Pinjaman::findOrFail($id);
-        return view('pages.peminjaman.invoice')->with([
+        return view('pages.admin.peminjaman.invoice')->with([
             'item' => $item,
             'data' => $data,
             'totalPinjam' => $totalPinjam,

@@ -17,7 +17,7 @@ class MyAccountController extends Controller
     public function index()
     {
         $data = Pinjaman::orderBy('status','ASC')->where('id_pelanggan',Auth::user()->id)->get();
-        return view('pages.akun.index')->with([
+        return view('pages.admin.akun.index')->with([
             'data' => $data
         ]);
     }

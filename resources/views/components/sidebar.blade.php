@@ -89,6 +89,17 @@
             @endif
             @if (Auth::user()->pin === '44156')
             <li class="menu-header">
+                Artikel & Kelas
+            </li>
+            <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
+                    href="{{ route('article.index') }}"><i class="fas fa-pen-nib"></i>
+                    <span>Artikel</span></a></li>
+            <li class="@if (Request::segment(1)=='iklan' ) active @endif"><a class="nav-link"
+                    href="{{ route('iklan.index') }}"><i class="fas fa-chalkboard-teacher"></i>
+                    <span>Kelas</span></a></li>
+            @endif
+            @if (Auth::user()->pin === '44156')
+            <li class="menu-header">
                 Informasi & Iklan
             </li>
             <li class="@if (Request::segment(1)=='informasi' ) active @endif"><a class="nav-link"

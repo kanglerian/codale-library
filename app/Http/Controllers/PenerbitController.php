@@ -19,7 +19,7 @@ class PenerbitController extends Controller
         if (Auth::user()->pin == 44156) {
         $total = Penerbit::all()->count();
         $data = Penerbit::all();
-        return view('pages.penerbit.index')->with([
+        return view('pages.admin.penerbit.index')->with([
             'data' => $data,
             'total' => $total
         ]);
@@ -64,7 +64,7 @@ class PenerbitController extends Controller
     {
         $item = Penerbit::findOrFail($id);
         $buku = Buku::with('penerbit')->where('id_penerbit',$id)->get();
-        return view('pages.penerbit.profile')->with([
+        return view('pages.admin.penerbit.profile')->with([
             'item' => $item,
             'buku' => $buku
         ]);
@@ -79,7 +79,7 @@ class PenerbitController extends Controller
     public function edit($id)
     {
         $item = Penerbit::findOrFail($id);
-        return view('pages.penerbit.edit-penerbit')->with([
+        return view('pages.admin.penerbit.edit-penerbit')->with([
             'item' => $item
         ]);
     }

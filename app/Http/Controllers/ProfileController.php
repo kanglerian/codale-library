@@ -48,7 +48,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('pages.profile.edit')->with([
+        return view('pages.admin.profile.edit')->with([
             'user' => $user
         ]);
     }

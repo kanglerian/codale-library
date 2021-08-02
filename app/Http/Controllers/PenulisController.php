@@ -21,7 +21,7 @@ class PenulisController extends Controller
 
             $total = Penulis::all()->count();
             $data = Penulis::all();
-            return view('pages.penulis.index')->with([
+            return view('pages.admin.penulis.index')->with([
                 'data' => $data,
                 'total' => $total
             ]);
@@ -79,7 +79,7 @@ class PenulisController extends Controller
         $total = Buku::with('penulis')->where('id_penulis', $id)->count();
         $item = Penulis::findOrFail($id);
         $buku = Buku::with('penulis')->where('id_penulis', $id)->get();
-        return view('pages.penulis.profile')->with([
+        return view('pages.admin.penulis.profile')->with([
             'item' => $item,
             'buku' => $buku,
             'total' => $total
@@ -95,7 +95,7 @@ class PenulisController extends Controller
     public function edit($id)
     {
         $item = Penulis::findOrFail($id);
-        return view('pages.penulis.edit-penulis')->with([
+        return view('pages.admin.penulis.edit-penulis')->with([
             'item' => $item
         ]);
     }
