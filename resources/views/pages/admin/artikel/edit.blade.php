@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea name="isi" id="editor" value="{!!$item->isi!!}">{!!$item->isi!!}</textarea>
+                    <textarea name="isi" id="editor">{!!$item->isi!!}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>

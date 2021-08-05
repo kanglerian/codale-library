@@ -201,11 +201,12 @@
                     </div>
                 </a>
                 <div class="row">
+                    @foreach ($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#"><img src="https://i.ytimg.com/vi/HqAMb6kqlLs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB3F_9KTbioOOtwfvi4w3fWZ_qAmw" class="img-fluid rounded-double" loading="lazy" /></a>
+                            <a href="#"><img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy" class="img-fluid rounded-double" /></a>
                             <h6 class="book-title mt-3 mb-2">
-                                <b>Belajar Laravel Dasar</b>
+                                <b>{{ $kls->nama_kelas }}</b>
                             </h6>
                             <p class="fs-3">
                                 Kelas Laravel di CodaleLibrary akan membahas hal-hal
@@ -217,40 +218,9 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card card-body shadow-sm">
-                            <a href="#"><img src="https://i.ytimg.com/vi/HqAMb6kqlLs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB3F_9KTbioOOtwfvi4w3fWZ_qAmw" class="img-fluid rounded-double" loading="lazy" /></a>
-                            <h6 class="book-title mt-3 mb-2">
-                                <b>Belajar Laravel Dasar</b>
-                            </h6>
-                            <p class="fs-3">
-                                Kelas Laravel di CodaleLibrary akan membahas hal-hal
-                                mendasar dari Laravel sampai dengan CRUD...
-                                <a href="#">selengkapnya</a>
-                            </p>
-                            <button class="btn btn-primary btn-sm rounded-double">
-                                <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card card-body shadow-sm">
-                            <a href="#"><img src="https://i.ytimg.com/vi/HqAMb6kqlLs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB3F_9KTbioOOtwfvi4w3fWZ_qAmw" class="img-fluid rounded-double" loading="lazy" /></a>
-                            <h6 class="book-title mt-3 mb-2">
-                                <b>Belajar Laravel Dasar</b>
-                            </h6>
-                            <p class="fs-3">
-                                Kelas Laravel di CodaleLibrary akan membahas hal-hal
-                                mendasar dari Laravel sampai dengan CRUD...
-                                <a href="#">selengkapnya</a>
-                            </p>
-                            <button class="btn btn-primary btn-sm rounded-double">
-                                <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
-                            </button>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="col-12 text-center fs-3">
-                        <a href="kelas.html">Lihat selengkapnya</a>
+                        <a href="{{ route('kelas.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
             </div>

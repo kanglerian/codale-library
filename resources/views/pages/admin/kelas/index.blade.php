@@ -22,7 +22,7 @@
         @endif
         <div class="row justify-content-center">
             <div class="col-12">
-                <a href="{{ route('class.create') }}" class="btn btn-primary"><i
+                <a href="{{ route('adminkelas.create') }}" class="btn btn-primary"><i
                         class="far fa-edit"></i> Tambah Kelas</a>
             </div>
         </div>
@@ -32,7 +32,7 @@
             @forelse ($data as $item)
                 <div class="col-12 col-md-4">
                     <div class="card">
-                        <a href="{{ route('class.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}" loading="lazy" class="card-img-top"></a>
+                        <a href="{{ route('adminkelas.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}" loading="lazy" class="card-img-top"></a>
                         <div class="card-body">
                             <div class="row justify-content-between">
                                 <div class="col-auto text-left">
@@ -52,34 +52,34 @@
                             <hr>
                             <div class="row justify-content-between mt-2">
                                 <div class="col-auto">
-                                    <a href="{{ route('class.show',$item->id) }}" class="btn btn-primary btn-sm px-3"><i class="fas fa-laptop-code mr-1"></i> Lihat kelas</a>
+                                    <a href="{{ route('adminkelas.show',$item->id) }}" class="btn btn-primary btn-sm px-3"><i class="fas fa-laptop-code mr-1"></i> Lihat kelas</a>
                                 </div>
                                 <div class="col-auto text-right">
                                     @if ($item->status == 'Aktif')
-                                        <form action="{{ route('class.update',$item->id) }}" method="POST" style="display: inline">
+                                        <form action="{{ route('adminkelas.update',$item->id) }}" method="POST" style="display: inline">
                                             @csrf
                                             @method('PATCH')
                                             <input type="hidden" name="status" value="Belum Aktif">
                                             <button type="submit" class="btn btn-success btn-sm">Aktif</button>
                                         </form>
                                     @elseif($item->status == "Belum Aktif")
-                                    <form action="{{ route('class.update',$item->id) }}" method="POST" style="display: inline">
+                                    <form action="{{ route('adminkelas.update',$item->id) }}" method="POST" style="display: inline">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="On Progress">
                                         <button type="submit" class="btn btn-danger btn-sm">Belum Aktif</button>
                                     </form>
                                     @elseif($item->status == "On Progress")
-                                    <form action="{{ route('class.update',$item->id) }}" method="POST" style="display: inline">
+                                    <form action="{{ route('adminkelas.update',$item->id) }}" method="POST" style="display: inline">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="Aktif">
                                         <button type="submit" class="btn btn-warning btn-sm">On Progress</button>
                                     </form>
                                     @endif
-                                    <a href="{{ route('class.edit',$item->id) }}" class="btn btn-info btn-sm"><i
+                                    <a href="{{ route('adminkelas.edit',$item->id) }}" class="btn btn-info btn-sm"><i
                                             class="fas fa-edit"></i></a>
-                                    <form action="{{ route('class.destroy',$item->id) }}" method="POST"
+                                    <form action="{{ route('adminkelas.destroy',$item->id) }}" method="POST"
                                         style="display: inline">
                                         @csrf
                                         @method('DELETE')
@@ -93,7 +93,9 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-center">Belum ada infromasi.</p>
+                    <div class="alert alert-danger text-center fs-4" role="alert">
+                        Kelas Belum Tersedia.
+                    </div>
                 </div>
             @endforelse
         </div>

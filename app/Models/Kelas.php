@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\DetailKelas;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,9 @@ class Kelas extends Model
     
     public function pelanggan(){
         return $this->belongsTo(User::class,'id_pelanggan','id');
+    }
+    public function detail(){
+        return $this->hasMany(DetailKelas::class,'id_kelas');
     }
 
 }

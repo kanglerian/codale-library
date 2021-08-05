@@ -48,7 +48,7 @@
     <div class="container">
         <div class="row">
             <!-- Product -->
-            @foreach ($data as $item)
+            @forelse($data as $item)
             <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                 <div class="card card-body shadow-sm">
                     <a href="{{ route('kelas.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}"
@@ -58,19 +58,27 @@
                     <hr style="margin-top: 0px">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle" height="40px">
+                            <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle"
+                                height="40px">
                         </div>
                         <div class="col-auto mt-1" style="margin-left:-20px;">
                             <a class="font-weight-bold fs-3">{{ $item->pelanggan->name }}</a><br>
                         </div>
                     </div>
                     <hr>
-                    <a href="{{ route('kelas.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double"><i class="fas fa-laptop-code mr-1"></i>
+                    <a href="{{ route('kelas.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double"><i
+                            class="fas fa-laptop-code mr-1"></i>
                         Ikuti Kelas</a>
                 </div>
             </div>
             <!-- End Product -->
-            @endforeach
+            @empty
+            <div class="col-12" data-aos="fade-up" style="margin-bottom: 300px">
+                <div class="alert alert-danger text-center fs-4" role="alert">
+                    Kelas Belum Tersedia.
+                </div>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -78,9 +86,9 @@
 @endsection
 
 @push('after-script')
-    <script>
-        gsap.from('.brand',{duration:0.5,opacity:0,x:100});
+<script>
+    gsap.from('.brand',{duration:0.5,opacity:0,x:100});
         gsap.from('.search',{duration:0.5,delay:0.5,scale:0});
         gsap.from('.kategori',{duration:0.5,delay:0.5,opacity:0,y:100});
-    </script>
+</script>
 @endpush

@@ -91,15 +91,16 @@
             <li class="menu-header">
                 Artikel & Kelas
             </li>
-            <li class="nav-item dropdown @if (Request::segment(1)=='class' ) active @endif">
+            <li class="nav-item dropdown @if (Request::segment(1)=='adminkelas' or
+            Request::segment(1)=='detailkelas' ) active @endif">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-chalkboard-teacher"></i>
                     <span>Kelas</span></a>
                 <ul class="dropdown-menu">
-                    <li class="@if (Request::segment(1)=='class' ) active @endif"><a class="nav-link"
-                            href="{{ route('class.index') }}">Katalog</a>
+                    <li class="@if (Request::segment(1)=='adminkelas' ) active @endif"><a class="nav-link"
+                            href="{{ route('adminkelas.index') }}">Katalog</a>
                     </li>
-                    <li class="@if (Request::segment(1)=='studio' ) active @endif"><a class="nav-link"
+                    <li class="@if (Request::segment(1)=='detailkelas' ) active @endif"><a class="nav-link"
                             href="{{ route('detailkelas.index') }}">Studio</a>
                     </li>
                 </ul>

@@ -10,7 +10,7 @@
             <h1>Edit Kelas</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('class.index') }}">Kelas</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('adminkelas.index') }}">Kelas</a></div>
                 <div class="breadcrumb-item active">Edit Kelas</div>
             </div>
         </div>
@@ -27,7 +27,7 @@
         @endif
         <div class="row justify-content-start">
             <div class="col-12">
-                <form action="{{ route('class.update',$item->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('adminkelas.update',$item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="modal-body">
