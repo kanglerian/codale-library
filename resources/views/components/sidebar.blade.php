@@ -91,12 +91,22 @@
             <li class="menu-header">
                 Artikel & Kelas
             </li>
+            <li class="nav-item dropdown @if (Request::segment(1)=='class' ) active @endif">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-chalkboard-teacher"></i>
+                    <span>Kelas</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if (Request::segment(1)=='class' ) active @endif"><a class="nav-link"
+                            href="{{ route('class.index') }}">Katalog</a>
+                    </li>
+                    <li class="@if (Request::segment(1)=='studio' ) active @endif"><a class="nav-link"
+                            href="{{ route('detailkelas.index') }}">Studio</a>
+                    </li>
+                </ul>
+            </li>
             <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
                     href="{{ route('article.index') }}"><i class="fas fa-pen-nib"></i>
                     <span>Artikel</span></a></li>
-            <li class="@if (Request::segment(1)=='iklan' ) active @endif"><a class="nav-link"
-                    href="{{ route('iklan.index') }}"><i class="fas fa-chalkboard-teacher"></i>
-                    <span>Kelas</span></a></li>
             @endif
             @if (Auth::user()->pin === '44156')
             <li class="menu-header">

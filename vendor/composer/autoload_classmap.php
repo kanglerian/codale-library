@@ -49,6 +49,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Kategori' => $baseDir . '/app/Http/Requests/Kategori.php',
+    'App\\Models\\Article' => $baseDir . '/app/Models/Article.php',
     'App\\Models\\Buku' => $baseDir . '/app/Models/Buku.php',
     'App\\Models\\DetailStatus' => $baseDir . '/app/Models/DetailStatus.php',
     'App\\Models\\Iklan' => $baseDir . '/app/Models/Iklan.php',

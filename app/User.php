@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->hasMany(Pinjaman::class,'id_pelanggan');
     }
 
+    public function kelas(){
+        return $this->hasMany(Kelas::class,'id_pelanggan');
+    }
+
     public function status(){
         return $this->hasMany(Status::class,'id_pelanggan');
     }

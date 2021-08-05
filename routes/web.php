@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\KelasContoller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +29,8 @@ Auth::routes(['register' => true]);
 Route::resource('landing', HomeController::class);
 Route::resource('katalog', KatalogController::class);
 Route::resource('kelas', KelasController::class);
+Route::resource('class', KelasOnlineController::class);
+Route::resource('detailkelas', DetailKelasController::class);
 Route::resource('artikel', ArtikelController::class);
 Route::resource('article', ArticleController::class)->middleware('auth');
 Route::resource('dashboard', DashboardController::class)->middleware('auth');

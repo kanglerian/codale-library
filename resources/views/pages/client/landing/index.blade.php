@@ -102,7 +102,7 @@
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
                             <div class="text-center">
-                                <a href="#"><img src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy" class="img-fluid"/></a>
+                                <a href="{{ route('artikel.show',$art->id) }}"><img src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy" class="img-fluid"/></a>
                             </div>
                             <h6 class="book-title mt-4 mb-4">
                                 <b>{{ $art->judul_artikel }}</b>

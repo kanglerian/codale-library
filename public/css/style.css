@@ -79,6 +79,11 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
     margin-left: 4px;
 }
 
+hr {
+    margin-top: 10px!important;
+    margin-bottom: 10px!important;
+}
+
 .bg-primary {
     background-color: #1e639d !important;
 }

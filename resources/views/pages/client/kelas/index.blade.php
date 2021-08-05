@@ -48,17 +48,29 @@
     <div class="container">
         <div class="row">
             <!-- Product -->
+            @foreach ($data as $item)
             <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                 <div class="card card-body shadow-sm">
-                    <a href="#"><img src="https://i.ytimg.com/vi/HqAMb6kqlLs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB3F_9KTbioOOtwfvi4w3fWZ_qAmw"
+                    <a href="{{ route('kelas.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}"
                             class="img-fluid rounded-double"></a>
-                    <h6 class="book-title mt-3 mb-2"><b>Belajar Laravel Dasar</b></h6>
-                    <p class="fs-3">Kelas Laravel di CodaleLibrary akan membahas hal-hal mendasar dari Laravel sampai dengan CRUD... <a href="#">selengkapnya</a></p>
-                    <button class="btn btn-primary btn-sm rounded-double"><i class="fas fa-laptop-code mr-1"></i>
-                        Ikuti Kelas</button>
+                    <h6 class="book-title mt-3"><b>{{ $item->nama_kelas }}</b></h6>
+                    <p class="fs-3"><span class="badge badge-success">{{ $item->tipe }}</span></p>
+                    <hr style="margin-top: 0px">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle" height="40px">
+                        </div>
+                        <div class="col-auto mt-1" style="margin-left:-20px;">
+                            <a class="font-weight-bold fs-3">{{ $item->pelanggan->name }}</a><br>
+                        </div>
+                    </div>
+                    <hr>
+                    <a href="{{ route('kelas.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double"><i class="fas fa-laptop-code mr-1"></i>
+                        Ikuti Kelas</a>
                 </div>
             </div>
             <!-- End Product -->
+            @endforeach
         </div>
     </div>
 </section>

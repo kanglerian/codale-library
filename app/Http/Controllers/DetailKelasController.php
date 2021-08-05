@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class DetailKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,7 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $data = Kelas::all();
-        return view('pages.client.kelas.index')->with([
-            'data' => $data
-        ]);
+        //
     }
 
     /**
@@ -49,10 +45,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        $item = Kelas::findOrFail($id);
-        return view('pages.client.kelas.detail')->with([
-            'item' => $item
-        ]);
+        //
     }
 
     /**

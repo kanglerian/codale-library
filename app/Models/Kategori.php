@@ -21,6 +21,10 @@ class Kategori extends Model
         return $this->hasMany(Buku::class,'id_kategori');
     }
 
+    public function kelas(){
+        return $this->hasMany(Kelas::class,'id_kategori');
+    }
+
     public function artikel(){
         return $this->hasMany(Article::class,'id_kategori');
     }

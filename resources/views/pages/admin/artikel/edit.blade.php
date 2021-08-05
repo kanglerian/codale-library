@@ -25,7 +25,7 @@
         </div>
     </div>
     @endif
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-12">
             <form action="{{ route('article.update',$item->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
