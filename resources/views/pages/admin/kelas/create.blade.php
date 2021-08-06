@@ -10,7 +10,7 @@
             <h1>Tambah Kelas</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('class.index') }}">Kelas</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('adminkelas.index') }}">Kelas</a></div>
                 <div class="breadcrumb-item active">Tambah Kelas</div>
             </div>
         </div>
@@ -27,7 +27,7 @@
         @endif
         <div class="row justify-content-start">
             <div class="col-md-8">
-                <form action="{{ route('class.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('adminkelas.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="id_pelanggan" value="{{ Auth::user()->id }}">

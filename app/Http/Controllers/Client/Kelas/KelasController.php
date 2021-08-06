@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client\Kelas;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetailKelas;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 
@@ -50,9 +51,11 @@ class KelasController extends Controller
      */
     public function show($id)
     {
+        $detail = DetailKelas::with('kelas')->where('id_kelas', $id)->get();
         $item = Kelas::findOrFail($id);
         return view('pages.client.kelas.detail')->with([
-            'item' => $item
+            'item' => $item,
+            'detail' => $detail
         ]);
     }
 

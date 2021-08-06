@@ -17,6 +17,7 @@ class CreateKelasTable extends Migration
             $table->id();
             $table->string('nama_kelas');
             $table->string('gambar')->nullable();
+            $table->string('kode_video');
             $table->integer('id_pelanggan');
             $table->string('harga')->nullable();
             $table->string('harga_awal')->nullable();

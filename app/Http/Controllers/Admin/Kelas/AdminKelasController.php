@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Kelas;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetailKelas;
 use App\Models\Kategori;
 use App\Models\Kelas;
 use App\User;
@@ -74,10 +75,16 @@ class AdminKelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $kelas = Kelas::all();
+        $creator = User::all();
+        $detail = DetailKelas::with('kelas')->where('id_kelas', $id)->get();
         $item = Kelas::findOrFail($id);
         return view('pages.admin.kelas.detail')->with([
-            'item' => $item
+            'item' => $item,
+            'detail' => $detail,
+            'kelas' => $kelas,
+            'creator' => $creator
         ]);
     }
 

@@ -11,7 +11,7 @@
                         <div class="card card-body shadow-sm" data-aos="fade-down">
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe class="embed-responsive-item rounded-triple" id="videoLive"
-                                    src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
+                                    src="https://www.youtube.com/embed/{{ $item->kode_video }}" allowfullscreen></iframe>
                             </div>
                             <h2 class="mt-4 mb-2">
                                 <b>{{ $item->nama_kelas }}</b>
@@ -28,18 +28,17 @@
             <div class="col-12 col-md-4">
                 <div class="card card-body shadow-sm" data-aos="fade-up" data-aos-delay="100">
                     <ul class="list-group">
-                        <li class="list-group-item border-0" id="videoItem"><button
-                                class="btn btn-primary btn-block text-left rounded-double fs-3">1. Pengenalan
-                                Figma</button>
+                        <li class="list-group-item border-0" id="videoItem" onclick="changeVideo('{{ $item->kode_video }}')"><button
+                                class="btn btn-primary btn-block text-left rounded-double fs-3">Introduction</button>
                         </li>
-                        <li class="list-group-item border-0" id="videoItem"><button
-                                class="btn btn-primary btn-block text-left rounded-double fs-3">2. Frame dan
-                                Color</button>
-                        </li>
-                        <li class="list-group-item border-0" id="videoItem"><button
-                                class="btn btn-primary btn-block text-left rounded-double fs-3">3. Background dan
-                                Pen Tools</button>
-                        </li>
+                        @forelse ($detail as $no => $dtl)
+                            <li class="list-group-item border-0" id="videoItem" onclick="changeVideo('{{ $dtl->kode_video }}')"><button
+                                    class="btn btn-primary btn-block text-left rounded-double fs-3">{{ $no + 1 }}. {{ $dtl->judul }}</button>
+                            </li>
+                        @empty
+                        <li class="list-group-item border-0"><button
+                            class="btn btn-danger btn-block text-left rounded-double fs-4">Belum ada video</button></li>
+                        @endforelse
                     </ul>
                 </div>
             </div>
@@ -55,5 +54,12 @@
     gsap.from('.brand',{duration:0.5,opacity:0,scale:0});
         gsap.from('.search',{duration:0.5,delay:0.5,scale:0});
         gsap.from('.kategori',{duration:0.5,delay:0.5,opacity:0,y:100});
+</script>
+<script>
+    function changeVideo(video) {
+        var liveVideo = document.getElementById('videoLive');
+        liveVideo.src = "https://www.youtube.com/embed/" + video;
+    }
+
 </script>
 @endpush

@@ -15,9 +15,11 @@ class CreateDetailKelasTable extends Migration
     {
         Schema::create('detail_kelas', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_kelas');
             $table->string('judul');
+            $table->string('thumbnail')->nullable();
             $table->string('kode_video');
+            $table->integer('id_kelas')->nullable();
+            $table->integer('id_creator');
             $table->longText('keterangan')->nullable();
             $table->string('status');
             $table->timestamps();

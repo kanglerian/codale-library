@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Kelas;
 
 use App\Http\Controllers\Controller;
 use App\Models\DetailKelas;
+use App\Models\Kelas;
+use App\User;
 use Illuminate\Http\Request;
 
 class DetailKelasController extends Controller
@@ -15,9 +17,13 @@ class DetailKelasController extends Controller
      */
     public function index()
     {
+        $kelas = Kelas::all();
+        $creator = User::all();
         $data = DetailKelas::all();
         return view('pages.admin.studio.index')->with([
-            'data' => $data
+            'data' => $data,
+            'creator' => $creator,
+            'kelas' => $kelas
         ]);
     }
 
@@ -39,7 +45,27 @@ class DetailKelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        if($request->thumbnail){
+
+            $thumbnail = $request->file('thumbnail');
+            $tujuan = 'thumbnail';
+            $namaFile =  time() . '.' . $thumbnail->getClientOriginalExtension();
+
+            $thumbnail->move($tujuan,$namaFile);
+
+            // $data['cover'] = $request->file('cover')->store(
+            //     'img/cover','public'
+            // );
+            $data['thumbnail'] = $namaFile;
+        }
+
+        DetailKelas::create($data);
+
+        return redirect()->back()->with([
+            'message' => 'Video berhasil ditambahkan',
+            'status' => 'alert-success'
+        ]);
     }
 
     /**

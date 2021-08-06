@@ -1,108 +1,161 @@
 @extends('layouts.admin')
 @section('title', 'Studio')
 @section('background')
-    <div class="navbar-bg-primary"></div>
+<div class="navbar-bg-primary"></div>
 @endsection
 
 @push('after-style')
+<style>
+    .content-ellipsis {
+        white-space: nowrap;
+        width: 300px !important;
+        overflow: hidden;
+        text-overflow: ellipsis !important;
+    }
+</style>
 @endpush
 @section('content')
 
-    <section class="section">
-        <div class="section-header">
-            <h1>Studio</h1>
+<section class="section">
+    <div class="section-header">
+        <h1>Codale Creator Studio</h1>
+    </div>
+    @if (session('message'))
+    <div class="alert @if (session('status')) {{ session('status') }} @endif alert-dismissible show fade">
+        <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+                <span>x</span>
+            </button>
+            <i class="fas fa-check mr-2"></i>
+            {{ session('message') }}
         </div>
-        @if (session('message'))
-            <div class="alert @if (session('status')) {{ session('status') }} @endif alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>x</span>
-                    </button>
-                    <i class="fas fa-check mr-2"></i>
-                    {{ session('message') }}
-                </div>
-            </div>
-        @endif
-        <div class="row">
-            @forelse ($data as $item)
-                <div class="col-12 col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <a href="{{ route('buku.show', $item->id) }}"><img
-                                    src="{{ asset('cover/' . $item->cover) ?? '' }}" loading="lazy"
-                                    class="img-fluid mb-3"></a>
-                            <h6 class="card-title">{{ $item->judul_buku }}</h6>
-                            <div class="row justify-content-between">
-                                <div class="col-auto align-items-start">
-                                    <p>Penulis</p>
-                                    <p>Penerbit</p>
-                                    <p>Status</p>
-                                </div>
-                                <div class="col-auto text-right align-items-end">
-                                    <p class="book-writter">{{ $item->penulis->nama_penulis ?? 'Belum diisi' }}</p>
-                                    <p class="book-publisher">{{ $item->penerbit->nama_penerbit ?? 'Belum diisi' }}</p>
-                                    <p>
-                                        @if ($item->status == 'Kembali')
-                                            <span class="badge badge-success">Tersedia</span>
-                                        @elseif($item->status == "Pinjam")
-                                            <span class="badge badge-warning">Dipinjam</span>
-                                        @elseif($item->status == "Hilang")
-                                            <span class="badge badge-danger">Hilang</span>
-                                        @elseif($item->status == "Tersedia")
-                                            <span class="badge badge-success">Tersedia</span>
-                                        @elseif($item->status == "Verifikasi")
-                                            <span class="badge badge-info">Menunggu Persetujuan</span>
+    </div>
+    @endif
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalTambahVideo"><i class="fas fa-upload mr-1"></i> Unggah video</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped dataTable" id="table-1">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        No
+                                    </th>
+                                    <th>Video</th>
+                                    <th>Judul</th>
+                                    <th>Kelas</th>
+                                    <th>Creator</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($data as $no => $item)
+                                <tr>
+                                    <td class="text-center">
+                                        {{ $no + 1 }}
+                                    </td>
+                                    <td><a href="{{ route('buku.show', $item->id) }}" style="text-decoration: none">
+                                            <img src="https://i.ytimg.com/vi/TYpDCdEjx8Y/maxresdefault.jpg"
+                                                class="rounded" width="120px" height="68px">
+                                        </a></td>
+                                    <td><p class="content-ellipsis"><b>{{ $item->judul}}</b></p>
+                                        <p class="content-ellipsis" style="margin-top: -20px">{{ $item->keterangan}}</p>
+                                    </td>
+                                    <td>{{ $item->kelas->nama_kelas }}</td>
+                                    <td>{{ $item->creator->name }}</td>
+                                    <td>
+                                        @if ($item->status == 'Aktif')
+                                        <div class="badge badge-success">Aktif</div>
+                                        @elseif($item->status == "Tidak Aktif")
+                                        <div class="badge badge-danger">Tidak Aktif</div>
                                         @endif
-                                    </p>
-                                </div>
-                            </div>
-                            @if (Auth::user()->pin === '44156')
-                                <a href="{{ route('buku.show', $item->id) }}" class="btn btn-primary btn-block"><i
-                                        class="fas fa-eye"></i> Lihat</a>
-                            @endif
-                            @if (Auth::user()->pin !== '44156')
-                                @if ($item->status == 'Kembali')
-                                    <form action="{{ route('pinjambuku') }}" method="POST" style="display: inline">
-                                        @csrf
-                                        <input type="hidden" class="form-control" value="TRX<?php echo date('Ymd') . date('his'); ?>"
-                                            name="id_transaksi">
-                                        <input type="hidden" name="id_pelanggan" value="{{ Auth::user()->id }}">
-                                        <input type="text" name="id_buku" value="{{ $item->id_buku }}">
-                                        <input type="hidden" name="tgl_pinjam" value="<?php echo date('Y-m-d'); ?>">
-                                        <input type="hidden" name="status" value="Verifikasi">
-                                        <input type="hidden" name="donasi" value="0">
-                                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i>
-                                            Pinjam buku</button>
-                                    </form>
-                                @elseif($item->status == "Tersedia")
-                                    <form action="{{ route('pinjambuku') }}" method="POST" style="display: inline">
-                                        @csrf
-                                        <input type="hidden" class="form-control" value="TRX<?php echo date('Ymd') . date('his'); ?>"
-                                            name="id_transaksi">
-                                        <input type="hidden" name="id_pelanggan" value="{{ Auth::user()->id }}">
-                                        <input type="hidden" name="id_buku" value="{{ $item->id }}">
-                                        <input type="hidden" name="tgl_pinjam" value="<?php echo date('Y-m-d'); ?>">
-                                        <input type="hidden" name="status" value="Verifikasi">
-                                        <input type="hidden" name="donasi" value="0">
-                                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i>
-                                            Pinjam buku</button>
-                                    </form>
-                                @elseif($item->status == "Hilang")
-                                    <span class="btn btn-danger btn-block disabled">Hilang</span>
-                                @elseif($item->status == "Pinjam")
-                                    <span class="btn btn-warning btn-block disabled">Dipinjam</span>
-                                @elseif($item->status == "Verifikasi")
-                                    <span class="btn btn-warning btn-block disabled">Sedang dipesan</span>
-                                @endif
-                            @endif
-                        </div>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">Video belum ada</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            @empty
-                <div class="col-12">
-                    <p class="text-center">Belum ada video.</p>
-                </div>
-            @endforelse
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+@endsection
+
+@section('modal')
+    <div class="modal fade" tabindex="-1" role="dialog" id="modalTambahVideo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('detailkelas.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Judul :</label>
+                            <input type="text" class="form-control" name="judul" placeholder="Masukan Judul..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Thumbnail :</label>
+                            <input type="file" class="form-control-file" name="thumbnail" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Kode Video :</label>
+                            <input type="text" class="form-control" name="kode_video" placeholder="Masukan Kode Video...">
+                            <small class="form-text text-muted">Contoh: youtube.com/watch?v=<b>HA6H8gSoq00</b></small>
+                        </div>
+                        <div class="form-group">
+                            <label>Kelas :</label>
+                            <select class="form-control" name="id_kelas" required>
+                                <option>Pilih</option>
+                                @foreach ($kelas as $kls)
+                                    <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Creator :</label>
+                            <select class="form-control" name="id_creator" required>
+                                <option>Pilih</option>
+                                @foreach ($creator as $crt)
+                                <option value="{{ $crt->id }}">{{ $crt->name }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan :</label>
+                            <textarea class="form-control" name="keterangan" placeholder="Masukan keterangan..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Status :</label>
+                            <select class="form-control" name="status" required>
+                                <option>Pilih</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Tidak Aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-whitesmoke br">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

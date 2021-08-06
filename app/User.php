@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\DetailKelas;
 use App\Models\DetailStatus;
 use App\Models\Status;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -45,6 +46,9 @@ class User extends Authenticatable
 
     public function kelas(){
         return $this->hasMany(Kelas::class,'id_pelanggan');
+    }
+    public function detailkelas(){
+        return $this->hasMany(DetailKelas::class,'id_creator');
     }
 
     public function status(){
