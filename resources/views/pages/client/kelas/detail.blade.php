@@ -29,7 +29,7 @@
                 <div class="card card-body shadow-sm" data-aos="fade-up" data-aos-delay="100">
                     <ul class="list-group">
                         <li class="list-group-item border-0" id="videoItem" onclick="changeVideo('{{ $item->kode_video }}')"><button
-                                class="btn btn-primary btn-block text-left rounded-double fs-3">Introduction</button>
+                                class="btn btn-primary btn-block text-left rounded-double fs-3"><i class="far fa-dot-circle mr-1"></i> Introduction</button>
                         </li>
                         @forelse ($detail as $no => $dtl)
                             <li class="list-group-item border-0" id="videoItem" onclick="changeVideo('{{ $dtl->kode_video }}')"><button
@@ -37,7 +37,7 @@
                             </li>
                         @empty
                         <li class="list-group-item border-0"><button
-                            class="btn btn-danger btn-block text-left rounded-double fs-4">Belum ada video</button></li>
+                            class="btn btn-danger btn-block text-left rounded-double fs-4"><i class="fas fa-lock mr-1"></i> Belum ada video</button></li>
                         @endforelse
                     </ul>
                 </div>

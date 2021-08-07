@@ -40,6 +40,10 @@
                             <input type="file" class="form-control-file" name="gambar" accept="image/*">
                         </div>
                         <div class="form-group">
+                            <label>Kode Video:</label>
+                            <input type="text" class="form-control" name="kode_video" value="{{ old('kode_video') }}" placeholder="Masukan kode video...">
+                        </div>
+                        <div class="form-group">
                             <label>Kategori :</label>
                             <div class="input-group">
                                 <select class="form-control" name="id_kategori">

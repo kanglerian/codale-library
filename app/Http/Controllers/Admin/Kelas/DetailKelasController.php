@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Kelas;
 
 use App\Http\Controllers\Controller;
 use App\Models\DetailKelas;
+use App\Models\Kategori;
 use App\Models\Kelas;
 use App\User;
 use Illuminate\Http\Request;
@@ -75,8 +76,15 @@ class DetailKelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $creator = User::all();
+        $kelas = Kelas::all();
+        $item = DetailKelas::findOrFail($id);
+        return view('pages.admin.studio.detail')->with([
+            'item' => $item,
+            'kelas' => $kelas,
+            'creator' => $creator
+        ]);
     }
 
     /**
@@ -99,7 +107,27 @@ class DetailKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        if($request->thumbnail){
+
+            $thumbnail = $request->file('thumbnail');
+            $tujuan = 'thumbnail';
+            $namaFile =  time() . '.' . $thumbnail->getClientOriginalExtension();
+
+            $thumbnail->move($tujuan,$namaFile);
+
+            // $data['cover'] = $request->file('cover')->store(
+            //     'img/cover','public'
+            // );
+            $data['thumbnail'] = $namaFile;
+        }
+        $item = DetailKelas::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->back()->with([
+            'message' => 'Data content berhasil diupdate',
+            'status' => 'alert-success'
+        ]);
     }
 
     /**
@@ -110,6 +138,12 @@ class DetailKelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = DetailKelas::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('detailkelas.index')->with([
+            'message' => 'Content berhasil dihapus',
+            'status' => 'alert-danger'
+        ]);
     }
 }

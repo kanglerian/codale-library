@@ -61,15 +61,15 @@
                                     <td class="text-center">
                                         {{ $no + 1 }}
                                     </td>
-                                    <td><a href="{{ route('buku.show', $item->id) }}" style="text-decoration: none">
-                                            <img src="https://i.ytimg.com/vi/TYpDCdEjx8Y/maxresdefault.jpg"
+                                    <td><a href="{{ route('detailkelas.show', $item->id) }}" style="text-decoration: none">
+                                            <img src="{{ asset('thumbnail/'.$item->thumbnail) }}"
                                                 class="rounded" width="120px" height="68px">
                                         </a></td>
                                     <td><p class="content-ellipsis"><b>{{ $item->judul}}</b></p>
-                                        <p class="content-ellipsis" style="margin-top: -20px">{{ $item->keterangan}}</p>
+                                        <p class="content-ellipsis" style="margin-top: -40px">{!! $item->keterangan !!}</p>
                                     </td>
-                                    <td>{{ $item->kelas->nama_kelas }}</td>
-                                    <td>{{ $item->creator->name }}</td>
+                                    <td>{{ $item->kelas->nama_kelas ?? 'Kelas tidak ada' }}</td>
+                                    <td>{{ $item->creator->name ?? 'Creator tidak ada' }}</td>
                                     <td>
                                         @if ($item->status == 'Aktif')
                                         <div class="badge badge-success">Aktif</div>

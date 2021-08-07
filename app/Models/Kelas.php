@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\DetailKelas;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +15,7 @@ class Kelas extends Model
     protected $table = 'kelas';
 
     protected $fillable = [
-        'nama_kelas','gambar','id_pelanggan','harga','harga_awal','deskripsi','id_kategori','tipe','status'
+        'nama_kelas','gambar','kode_video','id_pelanggan','harga','harga_awal','deskripsi','id_kategori','tipe','status'
     ];
 
     public function kategori(){
@@ -26,7 +25,7 @@ class Kelas extends Model
     public function pelanggan(){
         return $this->belongsTo(User::class,'id_pelanggan','id');
     }
-    public function detail(){
+    public function detailkelas(){
         return $this->hasMany(DetailKelas::class,'id_kelas');
     }
 

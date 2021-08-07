@@ -15,7 +15,7 @@ class DetailKelas extends Model
     protected $table = 'detail_kelas';
 
     protected $fillable = [
-        'judul','id_kelas','id_creator','kode_video','keterangan','status'
+        'judul','thumbnail','id_kelas','id_creator','kode_video','keterangan','status'
     ];
 
     public function kelas(){

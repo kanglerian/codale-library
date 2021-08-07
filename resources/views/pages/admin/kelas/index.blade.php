@@ -37,7 +37,7 @@
                             <div class="row justify-content-between">
                                 <div class="col-auto text-left">
                                     <h6>{{ $item->nama_kelas }}</h6>
-                                    {{-- <p><span class="badge badge-success">{{ $item->tipe }}</span></p> --}}
+                                    {{-- <p><span class="badge badge-success">{{ $item->tipe }}</span></p>    --}}
                                 </div>
                             </div>
                             <hr>

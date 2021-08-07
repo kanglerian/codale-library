@@ -35,7 +35,7 @@
                         <div class="card card-body shadow-sm">
                             <div class="text-center">
                                 <a href="{{ route('artikel.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}"
-                                        class="img-fluid rounded-double" /></a>
+                                        class="img-fluid rounded-circle" /></a>
                             </div>
                             <h6 class="book-title mt-4 mb-3">
                                 <b>{{ $item->judul_artikel }}</b>

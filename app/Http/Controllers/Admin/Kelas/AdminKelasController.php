@@ -149,7 +149,7 @@ class AdminKelasController extends Controller
         $item = Kelas::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('class.index')->with([
+        return redirect()->back()->with([
             'message' => 'Kelas berhasil dihapus',
             'status' => 'alert-danger'
         ]);

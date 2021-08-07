@@ -56,7 +56,7 @@
                             <div class="col-12 col-md-3">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ $item->cover }}" alt="" class="img-fluid mb-3" loading="lazy">
+                                        <img src="{{ asset('cover/'.$item->cover) }}" alt="" class="img-fluid mb-3" loading="lazy">
                                         <a href="{{ route('buku.show',$item->id) }}" class="btn btn-primary btn-block"><i class="fas fa-eye"></i> Lihat</a>
                                     </div>
                                 </div>
