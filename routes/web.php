@@ -18,6 +18,7 @@ use Admin\Beranda\AdminBerandaController;
 use Admin\Beranda\AdminKomentarController;
 use Admin\Iklan\AdminIklanController;
 use Admin\Informasi\AdminInformasiController;
+use Admin\Artikel\AdminAudioController;
 // Client
 use Client\Kelas\KelasController;
 use Client\Artikel\ArtikelController;
@@ -51,6 +52,7 @@ Route::resource('kategori', AdminKategoriController::class)->middleware('auth');
 Route::resource('adminkelas', AdminKelasController::class)->middleware('auth');
 Route::resource('detailkelas', DetailKelasController::class)->middleware('auth');
 Route::resource('article', AdminArtikelController::class)->middleware('auth');
+Route::resource('audio', AdminAudioController::class)->middleware('auth');
 Route::resource('buku', AdminBukuController::class)->middleware('auth');
 Route::resource('penulis', AdminPenulisController::class)->middleware('auth');
 Route::resource('penerbit', AdminPenerbitController::class)->middleware('auth');

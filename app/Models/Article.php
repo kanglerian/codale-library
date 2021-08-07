@@ -21,4 +21,8 @@ class Article extends Model
     {
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
+
+    public function audio(){
+        return $this->hasMany(Audio::class,'id_artikel');
+    }
 }

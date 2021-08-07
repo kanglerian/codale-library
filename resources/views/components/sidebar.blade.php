@@ -105,9 +105,19 @@
                     </li>
                 </ul>
             </li>
-            <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
-                    href="{{ route('article.index') }}"><i class="fas fa-pen-nib"></i>
-                    <span>Artikel</span></a></li>
+            <li class="nav-item dropdown @if (Request::segment(1)=='article' or
+            Request::segment(1)=='audio' ) active @endif">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-pen-nib"></i>
+                    <span>Artikel</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
+                            href="{{ route('article.index') }}">Katalog</a>
+                    </li>
+                    <li class=""><a class="nav-link"
+                            href="{{ route('audio.index') }}">Podcast</a>
+                    </li>
+                </ul>
+            </li>
             @endif
             @if (Auth::user()->pin === '44156')
             <li class="menu-header">

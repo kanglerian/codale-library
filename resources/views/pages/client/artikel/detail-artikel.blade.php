@@ -32,41 +32,16 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="row">
-                    <div class="col-12 mb-3" data-aos="fade-up">
-                        <div class="card card-body owl-carousel owl-theme shadow-sm">
-                            <div class="item">
-                                <img src="{{ asset('img-more/cek.jpeg') }}" class="img-fluid">
-                            </div>
-                            <div class="item">
-                                <img src="{{ asset('img-more/cek.jpeg') }}" class="img-fluid">
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-12 text-center" data-aos="fade-up">
-                        <h6 class="fs-3 mb-3"><i class="far fa-dot-circle"></i> <b>Pengagungan Terhadap Ilmu 01</b></h6>
+                    @foreach ($podcast as $pdc)
+                    <div class="col-12 text-left" data-aos="fade-up">
+                        <h6 class="fs-3 mb-3"><i class="far fa-dot-circle mr-1"></i><b>{{ $pdc->judul }}</b></h6>
                         <audio controls>
-                            <source src="{{ asset('audio/pengterilsatu.mpeg') }}" type="audio/mpeg">
+                            <source src="{{ asset('podcast/'.$pdc->audio) }}" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                         <hr>
                     </div>
-                    <div class="col-12 text-center" data-aos="fade-up">
-                        <h6 class="fs-3 mb-3"><i class="far fa-dot-circle"></i> <b>Pengagungan Terhadap Ilmu 02</b></h6>
-                        <audio controls>
-                            <source src="{{ asset('audio/pengterilsatu.mpeg') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <hr>
-                    </div>
-                    <div class="col-12 text-center" data-aos="fade-up">
-                        <h6 class="fs-3 mb-3"><i class="far fa-dot-circle"></i> <b>Pengagungan Terhadap Ilmu 03</b></h6>
-                        <audio controls>
-                            <source src="{{ asset('audio/pengterilsatu.mpeg') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <hr>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

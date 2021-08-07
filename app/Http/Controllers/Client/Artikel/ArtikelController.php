@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client\Artikel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Audio;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
@@ -53,9 +54,11 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
+        $podcast = Audio::with('artikel')->where('id_artikel',$id)->get();
         $item = Article::findOrFail($id);
         return view('pages.client.artikel.detail-artikel')->with([
-            'item' => $item
+            'item' => $item,
+            'podcast' => $podcast
         ]);
     }
 
