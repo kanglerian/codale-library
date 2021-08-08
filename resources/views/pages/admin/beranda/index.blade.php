@@ -76,7 +76,7 @@ echo date('Y-m-d\ H:i:s'); ?>" class="form-control" name="waktu">
                             data-target="#komentar{{ $item->id }}"><i class="fas fa-comment"></i><span
                                 class="bg-info rounded text-white px-1"
                                 style="font-size:9px">{{ $item->komentar()->count() }}</span></button>
-                        @if (Auth::user()->id === $item->id_pelanggan)
+                        @if (Auth::user()->pin === '44156')
                         <button type="button" class="btn" data-toggle="collapse"
                             data-target="#editPost{{ $item->id }}"><i class="fas fa-edit"></i></button>
                         <form action="{{ route('beranda.destroy', $item->id) }}" method="POST" style="display: inline">
