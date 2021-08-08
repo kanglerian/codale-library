@@ -95,7 +95,7 @@
             Request::segment(1)=='detailkelas' ) active @endif">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-chalkboard-teacher"></i>
-                    <span>Kelas</span></a>
+                    <span>Kelas & Studio</span></a>
                 <ul class="dropdown-menu">
                     <li class="@if (Request::segment(1)=='adminkelas' ) active @endif"><a class="nav-link"
                             href="{{ route('adminkelas.index') }}">Katalog</a>
@@ -108,7 +108,7 @@
             <li class="nav-item dropdown @if (Request::segment(1)=='article' or
             Request::segment(1)=='audio' ) active @endif">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-pen-nib"></i>
-                    <span>Artikel</span></a>
+                    <span>Artikel & Podcast</span></a>
                 <ul class="dropdown-menu">
                     <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
                             href="{{ route('article.index') }}">Katalog</a>
