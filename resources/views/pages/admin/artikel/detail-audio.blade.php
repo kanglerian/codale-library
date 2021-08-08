@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label>Artikel :</label>
-                            <select name="id_kategori" class="form-control">
+                            <select name="id_artikel" class="form-control">
                                 <option value="{{ $item->id_artikel }}">{{ $item->artikel->judul_artikel ?? 'Pilih' }}
                                 </option>
                                 @foreach ($artikel as $art)
@@ -70,12 +70,6 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="card card-body">
-                    <img src="{{ asset('gambar/'.$item->thumbnail) }}" class="img-fluid rounded">
-                    <div class="form-group mt-2">
-                        <label>Thumbnail :</label>
-                        <input type="file" class="form-control-file" name="thumbnail" accept="image/*">
-                    </div>
-                    <hr>
                     <audio controls>
                         <source src="{{ asset('podcast/'.$item->audio) }}" type="audio/mpeg">
                         Your browser does not support the audio element.

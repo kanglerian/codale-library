@@ -43,27 +43,14 @@ class AdminAudioController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        if($request->thumbnail){
 
-            $thumbnail = $request->file('thumbnail');
-            $tujuan = 'gambar';
-            $namaFile =  time() . '.' . $thumbnail->getClientOriginalExtension();
-
-            $thumbnail->move($tujuan,$namaFile);
-
-            // $data['cover'] = $request->file('cover')->store(
-            //     'img/cover','public'
-            // );
-            $data['thumbnail'] = $namaFile;
-        }
-
-        if($request->audio){
+        if ($request->audio) {
 
             $audio = $request->file('audio');
             $tujuan = 'podcast';
             $namaFile =  time() . '.' . $audio->getClientOriginalExtension();
 
-            $audio->move($tujuan,$namaFile);
+            $audio->move($tujuan, $namaFile);
 
             // $data['cover'] = $request->file('cover')->store(
             //     'img/cover','public'
@@ -116,35 +103,16 @@ class AdminAudioController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        if($request->thumbnail){
+        // dd($data);
+        $audio = $request->file('audio');
+        $tujuan = 'podcast';
+        $namaFile =  time() . '.' . $audio->getClientOriginalExtension();
 
-            $thumbnail = $request->file('thumbnail');
-            $tujuan = 'gambar';
-            $namaThumb =  time() . '.' . $thumbnail->getClientOriginalExtension();
+        $audio->move($tujuan, $namaFile);
 
-            $thumbnail->move($tujuan,$namaThumb);
+        $data['audio'] = $namaFile;
 
-            // $data['cover'] = $request->file('cover')->store(
-            //     'img/cover','public'
-            // );
-            $data['thumbnail'] = $namaThumb;
-        }
-
-        if($request->audio){
-
-            $audio = $request->file('audio');
-            $tujuan = 'podcast';
-            $namaFile =  time() . '.' . $audio->getClientOriginalExtension();
-
-            $audio->move($tujuan,$namaFile);
-
-            // $data['cover'] = $request->file('cover')->store(
-            //     'img/cover','public'
-            // );
-            $data['audio'] = $namaFile;
-        }
-
-        $item = Article::findOrFail($id);
+        $item = Audio::findOrFail($id);
         $item->update($data);
 
         return redirect()->back()->with([

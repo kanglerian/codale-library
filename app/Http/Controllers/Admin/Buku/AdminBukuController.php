@@ -135,10 +135,6 @@ class AdminBukuController extends Controller
 
             $cover->move($tujuan,$namaFile);
 
-            // $data['cover'] = $request->file('cover')->store(
-            //     'img/cover','public'
-            // );
-
             $data['cover'] = $namaFile;
 
         }

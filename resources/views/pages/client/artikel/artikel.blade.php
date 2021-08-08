@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-6 text-right">
                                     <p class="btn btn-primary btn-sm rounded-double fs-3">
-                                        <i class="fas fa-hashtag"></i> {{ $item->kategori->nama_kategori }}
+                                        <i class="fas fa-hashtag"></i> {{ $item->kategori->nama_kategori ?? '' }}
                                     </p>
                                 </div>
                             </div>

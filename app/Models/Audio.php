@@ -14,7 +14,7 @@ class Audio extends Model
     protected $table = 'audio';
 
     protected $fillable = [
-        'judul', 'thumbnail', 'id_artikel', 'audio', 'keterangan', 'status'
+        'judul', 'id_artikel', 'audio', 'keterangan', 'status'
     ];
 
     public function artikel()

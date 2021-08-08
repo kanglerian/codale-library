@@ -46,9 +46,9 @@
                     <div class="form-group col-md-4">
                         <label>Kategori :</label>
                         <select name="id_kategori" class="form-control">
-                            <option value="{{ $item->id_kategori }}">{{ $item->kategori->nama_kategori }}</option>
+                            <option value="{{ $item->id_kategori }}">{{ $item->kategori->nama_kategori ?? 'Pilih' }}</option>
                             @foreach ($kategori as $ktg)
-                                <option value="{{ $item->id }}">{{ $ktg->nama_kategori }}</option>
+                                <option value="{{ $ktg->id }}">{{ $ktg->nama_kategori }}</option>
                             @endforeach
                         </select>
                     </div>

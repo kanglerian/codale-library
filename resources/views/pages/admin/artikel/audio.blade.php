@@ -49,7 +49,6 @@
                                     <th class="text-center">
                                         #
                                     </th>
-                                    <th>Thumbnail</th>
                                     <th>Judul</th>
                                     <th>Audio</th>
                                     <th>Action</th>
@@ -59,10 +58,6 @@
                                 @forelse ($data as $no => $item)
                                 <tr>
                                     <td class="text-center align-middle">{{ $no + 1 }}</td>
-                                    <td><a href="{{ route('audio.show',$item->id) }}" style="text-decoration: none"><img
-                                                src="{{ asset('gambar/'.$item->thumbnail) }}" class="rounded"
-                                                width="120px" height="68px"></a>
-                                    </td>
                                     <td class="align-middle">
                                         <a href="{{ route('audio.show',$item->id) }}"
                                             style="text-decoration: none"><b>{{ $item->judul }}</b></a><br>
@@ -75,7 +70,7 @@
                                         </audio>
                                     </td>
                                     <td class="align-middle">
-                                        <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                                        <a href="{{ route('audio.show',$item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('audio.destroy',$item->id) }}" method="POST"
                                             style="display: inline">
                                             @csrf
@@ -117,10 +112,6 @@
                         <input type="text" class="form-control" name="judul" placeholder="Masukan judul podcast...">
                     </div>
                     <div class="form-group">
-                        <label>Thumbnail :</label>
-                        <input type="file" class="form-control-file" name="thumbnail" accept="image/*">
-                    </div>
-                    <div class="form-group">
                         <label>Audio :</label>
                         <input type="file" class="form-control-file" name="audio">
                     </div>
@@ -138,7 +129,7 @@
                     <div class="form-group">
                         <label>Deskripsi :</label>
                         <textarea class="form-control" id="editor" name="keterangan" placeholder="Masukan keterangan..."
-                            value="{{ old('keterangan') }}">{{ old('keterangan') }}</textarea>
+                            value="Tidak ada keterangan">Tidak ada keterangan</textarea>
                     </div>
                     <div class="form-group">
                         <label>Status :</label>

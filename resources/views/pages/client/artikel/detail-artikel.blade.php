@@ -19,7 +19,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <h6 class="badge badge-primary"><i class="fas fa-hashtag"></i>
-                                        {{ $item->kategori->nama_kategori }}</h6>
+                                        {{ $item->kategori->nama_kategori ?? '' }}</h6>
                                 </div>
                             </div>
                             <hr>
@@ -34,7 +34,7 @@
                 <div class="row">
                     @foreach ($podcast as $pdc)
                     <div class="col-12 text-left" data-aos="fade-up">
-                        <h6 class="fs-3 mb-3"><i class="far fa-dot-circle mr-1"></i><b>{{ $pdc->judul }}</b></h6>
+                        <h6 class="fs-4 mb-3"><i class="far fa-dot-circle mr-1"></i><b>{{ $pdc->judul }}</b></h6>
                         <audio controls>
                             <source src="{{ asset('podcast/'.$pdc->audio) }}" type="audio/mpeg">
                             Your browser does not support the audio element.
