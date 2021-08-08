@@ -201,7 +201,7 @@
                     </div>
                 </a>
                 <div class="row">
-                    @foreach ($kelas as $kls)
+                    @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
                             <a href="#"><img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy" class="img-fluid rounded-double" /></a>
@@ -218,7 +218,13 @@
                             </button>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="col-12mb-4" data-aos="fade-up">
+                        <div class="card card-body shadow-sm">
+                            <p>Kelas belum ada</p>
+                        </div>
+                    </div>
+                    @endforelse
                     <div class="col-12 text-center fs-3">
                         <a href="{{ route('kelas.index') }}">Lihat selengkapnya</a>
                     </div>
