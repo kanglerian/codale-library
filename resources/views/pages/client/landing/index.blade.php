@@ -7,7 +7,8 @@
                 <div class="owl-carousel owl-theme">
                     @foreach ($banner as $konten)
                     <div class="item">
-                        <a href="#" target="_blank"><img src="{{ asset('gambar/' . $konten->gambar) ?? '' }}" class="img-fluid rounded-triple" loading="lazy" /></a>
+                        <a href="#" target="_blank"><img src="{{ asset('gambar/' . $konten->gambar) ?? '' }}"
+                                class="img-fluid rounded-triple" loading="lazy" /></a>
                     </div>
                     @endforeach
                 </div>
@@ -45,7 +46,9 @@
 
                                     </tr>
                                     <tr>
-                                        <td colspan="5"><button class="btn btn-primary rounded-double btn-block btn-sm fs-3" id="liveTime">12:52
+                                        <td colspan="5"><button
+                                                class="btn btn-primary rounded-double btn-block btn-sm fs-3"
+                                                id="liveTime">12:52
                                                 WIB</button></td>
                                     </tr>
                                 </table>
@@ -56,7 +59,8 @@
             </div>
             <div class="col-12 col-md-5 align-self-center mb-2 kajian d-none d-md-block">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item rounded-triple" id="videoLive" src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item rounded-triple" id="videoLive"
+                        src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-2 align-self-center mb-2 channel d-none d-md-block">
@@ -64,7 +68,9 @@
                     <ul class="list-group">
                         {{-- <i class="fas fa-dot-circle text-danger mr-1"></i> --}}
                         @foreach ($info as $tv)
-                        <li class="list-group-item border-0 fs-4" id="videoItem" onclick="changeVideo('{{ $tv->video }}')"><button class="btn btn-primary btn-sm btn-block rounded-double fs-5">{{ $tv->judul }}</button>
+                        <li class="list-group-item border-0 fs-4" id="videoItem"
+                            onclick="changeVideo('{{ $tv->video }}')"><button
+                                class="btn btn-primary btn-sm btn-block rounded-double fs-5">{{ $tv->judul }}</button>
                         </li>
                         @endforeach
                     </ul>
@@ -98,25 +104,32 @@
                     </div>
                 </a>
                 <div class="row">
-                    @foreach ($artikel as $art)
+                    @forelse($artikel as $art)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
                             <div class="text-center">
-                                <a href="{{ route('artikel.show',$art->id) }}"><img src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy" class="img-fluid"/></a>
+                                <a href="{{ route('artikel.show',$art->id) }}"><img
+                                        src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy"
+                                        class="img-fluid" /></a>
                             </div>
                             <h6 class="book-title mt-4 mb-4">
                                 <b>{{ $art->judul_artikel }}</b>
                             </h6>
                             <div class="row justify-content-between">
                                 <div class="col-12">
-                                    <a href="{{ route('artikel.show',$art->id) }}" class="btn btn-primary btn-sm rounded-double px-2">
+                                    <a href="{{ route('artikel.show',$art->id) }}"
+                                        class="btn btn-primary btn-sm rounded-double px-2">
                                         <i class="fas fa-book-open mr-1"></i> Baca selengkapnya
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty  
+                    <div class="col-12 mb-5" data-aos="fade-up">
+                        <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
+                    </div>
+                    @endforelse
                     <div class="col-12 text-center fs-3">
                         <a href="{{ route('artikel.index') }}">Lihat selengkapnya</a>
                     </div>
@@ -150,10 +163,11 @@
                     </div>
                 </a>
                 <div class="row">
-                    @foreach ($data as $item)
+                    @forelse($data as $item)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#"><img src="{{ asset('cover/' . $item->cover) ?? '' }}" class="img-fluid rounded-double" loading="lazy" /></a>
+                            <a href="#"><img src="{{ asset('cover/' . $item->cover) ?? '' }}"
+                                    class="img-fluid rounded-double" loading="lazy" /></a>
                             <a href="#" class="text-dark">
                                 <h6 class="book-title mt-3 mb-2">
                                     <b>{{ $item->judul_buku }}</b>
@@ -167,7 +181,11 @@
                             </a>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="col-12 mb-5" data-aos="fade-up">
+                        <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
+                    </div>
+                    @endforelse
                     <div class="col-12 text-center fs-3">
                         <a href="{{ route('katalog.index') }}">Lihat selengkapnya</a>
                     </div>
@@ -204,7 +222,8 @@
                     @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#"><img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy" class="img-fluid rounded-double" /></a>
+                            <a href="#"><img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
+                                    class="img-fluid rounded-double" /></a>
                             <h6 class="book-title mt-3 mb-2">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>
@@ -219,10 +238,8 @@
                         </div>
                     </div>
                     @empty
-                    <div class="col-12mb-4" data-aos="fade-up">
-                        <div class="card card-body shadow-sm">
-                            <p>Kelas belum ada</p>
-                        </div>
+                    <div class="col-12 mb-5" data-aos="fade-up">
+                        <p class="fs-3 text-center text-danger">Kelas belum tersedia</p>
                     </div>
                     @endforelse
                     <div class="col-12 text-center fs-3">
