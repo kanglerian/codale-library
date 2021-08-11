@@ -34,8 +34,13 @@
         <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
             <div class="card card-body shadow-sm">
                 <div class="text-center">
-                    <a href="{{ route('artikel.show',$item->id) }}"><img
-                            src="{{ asset('gambar/' . $item->gambar) ?? '' }}" loading="lazy" class="img-fluid" /></a>
+                    <a href="{{ route('artikel.show',$item->id) }}">
+                        @if ($item->gambar)
+                        <img src="{{ asset('gambar/' . $item->gambar) }}" loading="lazy" class="img-fluid" />
+                        @else
+                        <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy" class="img-fluid" />     
+                        @endif
+                    </a>
                 </div>
                 <h6 class="book-title mt-4 mb-3">
                     <b>{{ $item->judul_artikel }}</b>

@@ -32,18 +32,27 @@
             @forelse ($data as $item)
                 <div class="col-12 col-md-4">
                     <div class="card">
-                        <a href="{{ route('adminkelas.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}" loading="lazy" class="card-img-top"></a>
+                        <a href="{{ route('adminkelas.show',$item->id) }}">
+                            @if ($item->gambar)
+                                <img src="{{ asset('gambar/'.$item->gambar) }}" loading="lazy" class="card-img-top">
+                            @else
+                                <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy" class="card-img-top">
+                            @endif
+                        </a>
                         <div class="card-body">
                             <div class="row justify-content-between">
                                 <div class="col-auto text-left">
                                     <h6>{{ $item->nama_kelas }}</h6>
-                                    {{-- <p><span class="badge badge-success">{{ $item->tipe }}</span></p>    --}}
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-auto">
+                                    @if ($item->pelanggan->photo)
                                     <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle" height="40px">
+                                    @else
+                                    <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded-circle" height="40px">
+                                    @endif
                                 </div>
                                 <div class="col-auto mt-2" style="margin-left:-20px;">
                                     <a class="font-weight-bold fs-3">{{ $item->pelanggan->name }}</a><br>

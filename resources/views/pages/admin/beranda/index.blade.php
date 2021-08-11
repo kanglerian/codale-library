@@ -46,7 +46,11 @@ echo date('Y-m-d\ H:i:s'); ?>" class="form-control" name="waktu">
             <div class="card card-body mb-3" loading="lazy">
                 <div class="row justify-content-start mb-3">
                     <div class="col-auto">
-                        <img src="{{ asset('photo/' . $item->member->photo) }}" class="rounded" height="50px">
+                        @if ($item->member->photo)
+                            <img src="{{ asset('photo/' . $item->member->photo) }}" class="rounded" height="50px">  
+                        @else
+                            <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded" height="50px"> 
+                        @endif
                     </div>
                     <div class="col-auto mt-1" style="margin-left:-20px;">
                         <a class="font-weight-bold">{{ $item->member->name }}</a><br>
@@ -91,8 +95,13 @@ echo date('Y-m-d\ H:i:s'); ?>" class="form-control" name="waktu">
                         @forelse ($item->komentar as $komen)
                         <div class="row mb-2">
                             <div class="col-auto">
-                                <img src="{{ asset('photo/' . $komen->member->photo) }}" class="rounded-circle"
-                                    height="40px">
+                                @if ($komen->member->photo)
+                                    <img src="{{ asset('photo/' . $komen->member->photo) }}" class="rounded-circle"
+                                height="40px">
+                                @else
+                                    <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded-circle"
+                                height="40px">
+                                @endif
                             </div>
                             <div class="col-auto" style="margin-left:-20px;">
                                 <a class="font-weight-bold">{{ $komen->member->name }}</a><br>
@@ -159,7 +168,13 @@ echo date('Y-m-d\ H:i:s'); ?>" class="form-control" name="waktu">
             @endforeach
             @foreach ($iklan as $konten)
                 <div class="card">
-                    <a href="{{ $konten->link }}" target="_blank"><img class="card-img-top" src="{{ asset('gambar/' . $konten->gambar) ?? '' }}" loading="lazy"></a>
+                    <a href="{{ $konten->link }}" target="_blank">
+                        @if ($konten->gambar)
+                            <img class="card-img-top" src="{{ asset('gambar/' . $konten->gambar)}}" loading="lazy">
+                        @else
+                            <img class="card-img-top" src="{{ asset('img-more/img01.jpg')}}" loading="lazy">
+                        @endif
+                    </a>
                 </div>
             @endforeach
         </div>

@@ -34,8 +34,15 @@
                     <div class="col-12 col-md-6 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
                             <div class="text-center">
-                                <a href="{{ route('artikel.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}"
-                                        class="img-fluid rounded-double"/></a>
+                                <a href="{{ route('artikel.show',$item->id) }}">
+                                    @if ($item->gambar)
+                                        <img src="{{ asset('gambar/'.$item->gambar) }}"
+                                    class="img-fluid rounded-double"/>
+                                    @else
+                                        <img src="{{ asset('img-more/img01.jpg') }}"
+                                    class="img-fluid rounded-double"/>
+                                    @endif
+                                </a>
                             </div>
                             <h6 class="book-title mt-4 mb-3">
                                 <b>{{ $item->judul_artikel }}</b>

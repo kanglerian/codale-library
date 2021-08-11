@@ -34,7 +34,7 @@
                             Kembali</a></li>
                 </ul>
             </li>
-            <li class="nav-item dropdown @if (Request::segment(2)=='baca' ) active @endif">
+            {{-- <li class="nav-item dropdown @if (Request::segment(2)=='baca' ) active @endif">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i>
                     <span>Pojok Baca</span></a>
                 <ul class="dropdown-menu">
@@ -42,7 +42,7 @@
                             href="{{ route('baca.index') }}">Membaca Buku</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             @endif
             @if (Auth::user()->pin === '44156')
             <li class="menu-header">Master Data</li>
@@ -111,7 +111,7 @@
                     <span>Artikel & Podcast</span></a>
                 <ul class="dropdown-menu">
                     <li class="@if (Request::segment(1)=='article' ) active @endif"><a class="nav-link"
-                            href="{{ route('article.index') }}">Katalog</a>
+                            href="{{ route('article.index') }}">Artikel</a>
                     </li>
                     <li class=""><a class="nav-link"
                             href="{{ route('audio.index') }}">Podcast</a>

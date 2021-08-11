@@ -36,8 +36,13 @@
                 <div class="col-12 col-md-6">
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
-                            <img alt="image" src="{{ asset('photo/'.$item->photo) ?? asset('assets/img/avatar/avatar-1.png') }}"
+                            @if ($item->photo)
+                            <img src="{{ asset('photo/'.$item->photo)}}"
                                 class="rounded-circle profile-widget-picture img-thumbnail" loading="lazy">
+                            @else
+                            <img src="{{ asset('img-more/avatar-1.png')}}"
+                            class="rounded-circle profile-widget-picture img-thumbnail" loading="lazy">
+                            @endif
                             <div class="profile-widget-items">
                                 <div class="profile-widget-item">
                                     <div class="profile-widget-item-label">Total Buku</div>
@@ -98,7 +103,14 @@
                     <div class="col-12 col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('buku.show',$item->id) }}"><img src="{{ asset('cover/'. $item->cover) ?? '' }}" alt="Tidak ada gambar" class="img-fluid mb-3"></a>
+                                <a href="{{ route('buku.show',$item->id) }}">
+                                    @if ($item->cover)
+                                        <img src="{{ asset('cover/'. $item->cover) }}" class="img-fluid mb-3">
+                                    @else
+                                        <img src="{{ asset('img-more/img01.jpg') }}" class="img-fluid mb-3">
+                                    @endif
+                                </a>
+                                <h6>{{ $item->judul_buku }}</h6>
                                 <a href="{{ route('buku.show', $item->id) }}" class="btn btn-primary btn-block"><i
                                         class="fas fa-eye"></i> Lihat</a>
                             </div>

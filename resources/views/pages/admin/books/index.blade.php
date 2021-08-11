@@ -166,9 +166,15 @@
                 <div class="col-12 col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('buku.show', $item->id) }}"><img
-                                    src="{{ asset('cover/' . $item->cover) ?? '' }}" loading="lazy"
-                                    class="img-fluid mb-3"></a>
+                            <a href="{{ route('buku.show', $item->id) }}">
+                                @if ($item->cover)
+                                <img src="{{ asset('cover/' . $item->cover)}}" loading="lazy"
+                                    class="img-fluid mb-3">
+                                @else
+                                    <img src="{{ asset('img-more/img01.jpg')}}" loading="lazy"
+                                class="img-fluid mb-3">
+                                @endif
+                            </a>
                             <h6 class="card-title">{{ $item->judul_buku }}</h6>
                             <div class="row justify-content-between">
                                 <div class="col-auto align-items-start">

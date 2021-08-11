@@ -34,11 +34,6 @@ a {
 .card {
     border: none;
     border-radius: 1rem;
-    transition: 300ms ease-in-out;
-}
-.card:hover{
-    transform: scale(1.02);
-    transition: 300ms ease-in-out;
 }
 
 .book-title {

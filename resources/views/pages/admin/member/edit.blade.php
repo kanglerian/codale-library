@@ -35,8 +35,14 @@
                 <div class="col-12 col-md-12 col-lg-5">
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
-                            <img src="{{ asset('photo/'.$user->photo) ?? asset('assets/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle profile-widget-picture">
+                            @if ($user->photo)
+                                <img src="{{ asset('photo/'.$user->photo)}}"
+                            class="rounded-circle profile-widget-picture">
+                            @else
+                                <img src="{{ asset('img-more/avatar-1.png')}}"
+                            class="rounded-circle profile-widget-picture">
+                            @endif
+                            
                             <div class="profile-widget-items">
                                 <div class="profile-widget-item">
                                     <div class="profile-widget-item-label">Posts</div>

@@ -32,7 +32,11 @@
             @forelse ($data as $item)
                 <div class="col-12 col-md-4">
                     <div class="card">
-                        <img src="{{ asset('gambar/' . $item->gambar) ?? '' }}" loading="lazy" class="card-img-top">
+                        @if ($item->gambar)
+                            <img src="{{ asset('gambar/' . $item->gambar) }}" loading="lazy" class="card-img-top">
+                        @else
+                            <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy" class="card-img-top">
+                        @endif
                         <div class="card-body">
                             <div class="row justify-content-between">
                                 <div class="col-auto text-left">

@@ -38,8 +38,15 @@
             <!-- Product -->
             <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                 <div class="card card-body shadow-sm">
-                    <a href="#"><img src="{{ asset('cover/' . $item->cover) ?? '' }}"
-                            class="img-fluid rounded-double"></a>
+                    <a href="#">
+                        @if ($item->cover)
+                            <img src="{{ asset('cover/' . $item->cover)}}"
+                        class="img-fluid rounded-double">
+                        @else
+                            <img src="{{ asset('img-more/img01.jpg')}}"
+                        class="img-fluid rounded-double">
+                        @endif
+                    </a>
                     <h6 class="book-title mt-3 mb-2"><b>{{ $item->judul_buku }}</b></h6>
                     <p class="fs-3 book-desc">{{ $item->deskripsi ?? 'Tidak ada keterangan' }}</p>
                     @if ($item->status == 'Pinjam')

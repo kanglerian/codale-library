@@ -7,8 +7,15 @@
                 <div class="owl-carousel owl-theme">
                     @foreach ($banner as $konten)
                     <div class="item">
-                        <a href="#" target="_blank"><img src="{{ asset('gambar/' . $konten->gambar) ?? '' }}"
-                                class="img-fluid rounded-triple" loading="lazy" /></a>
+                        <a href="#" target="_blank">
+                            @if ($konten->gambar)
+                                <img src="{{ asset('gambar/' . $konten->gambar)}}"
+                            class="img-fluid rounded-triple" loading="lazy" />
+                            @else
+                                <img src="{{ asset('img-more/banner.jpg')}}"
+                            class="img-fluid rounded-triple" loading="lazy" />
+                            @endif 
+                        </a>
                     </div>
                     @endforeach
                 </div>
@@ -20,7 +27,7 @@
 <section class="katalog">
     <div class="container">
         <div class="row justify-content-center mx-1 px-2">
-            <div class="col-12 col-md-5 p-1 align-self-center mb-2 shalat d-none d-md-block">
+            <div class="col-12 col-md-5 p-1 align-self-center mb-2 shalat">
                 <div class="row">
                     <div class="col-12">
                         <div class="card-body rounded-triple shadow-sm">
@@ -57,7 +64,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-5 align-self-center mb-2 kajian d-none d-md-block">
+            <div class="col-12 col-md-5 align-self-center mb-2 kajian">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item rounded-triple" id="videoLive"
                         src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
@@ -66,7 +73,6 @@
             <div class="col-md-2 align-self-center mb-2 channel d-none d-md-block">
                 <div class="card-body rounded-double shadow-sm">
                     <ul class="list-group">
-                        {{-- <i class="fas fa-dot-circle text-danger mr-1"></i> --}}
                         @foreach ($info as $tv)
                         <li class="list-group-item border-0 fs-4" id="videoItem"
                             onclick="changeVideo('{{ $tv->video }}')"><button
@@ -108,9 +114,15 @@
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
                             <div class="text-center">
-                                <a href="{{ route('artikel.show',$art->id) }}"><img
-                                        src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy"
-                                        class="img-fluid" /></a>
+                                <a href="{{ route('artikel.show',$art->id) }}">
+                                    @if ($art->gambar)
+                                    <img src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy"
+                                    class="img-fluid" /> 
+                                    @else
+                                    <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy"
+                                    class="img-fluid" /> 
+                                    @endif
+                                </a>
                             </div>
                             <h6 class="book-title mt-4 mb-4">
                                 <b>{{ $art->judul_artikel }}</b>
@@ -166,8 +178,16 @@
                     @forelse($data as $item)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#"><img src="{{ asset('cover/' . $item->cover) ?? '' }}"
-                                    class="img-fluid rounded-double" loading="lazy" /></a>
+                            <a href="#">
+                                @if ($item->cover)
+                                <img src="{{ asset('cover/' . $item->cover)}}"
+                                    class="img-fluid rounded-double" loading="lazy" />
+                                @else
+                                <img src="{{ asset('img-more/img01.jpg')}}"
+                                    class="img-fluid rounded-double" loading="lazy" />
+                                @endif
+                                
+                            </a>
                             <a href="#" class="text-dark">
                                 <h6 class="book-title mt-3 mb-2">
                                     <b>{{ $item->judul_buku }}</b>
@@ -222,8 +242,15 @@
                     @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#"><img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
-                                    class="img-fluid rounded-double" /></a>
+                            <a href="#">
+                                @if ($kls->gambar)
+                                    <img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
+                                class="img-fluid rounded-double" />
+                                @else
+                                    <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy"
+                                class="img-fluid rounded-double" />
+                                @endif
+                            </a>
                             <h6 class="book-title mt-3 mb-2">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>

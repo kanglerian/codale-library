@@ -51,15 +51,27 @@
             @forelse($data as $item)
             <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                 <div class="card card-body shadow-sm">
-                    <a href="{{ route('kelas.show',$item->id) }}"><img src="{{ asset('gambar/'.$item->gambar) }}"
-                            class="img-fluid rounded-double"></a>
+                    <a href="{{ route('kelas.show',$item->id) }}">
+                        @if ($item->gambar)
+                            <img src="{{ asset('gambar/'.$item->gambar) }}"
+                        class="img-fluid rounded-double">
+                        @else
+                            <img src="{{ asset('img-more/img01.jpg') }}"
+                        class="img-fluid rounded-double">
+                        @endif
+                    </a>
                     <h6 class="book-title mt-3"><b>{{ $item->nama_kelas }}</b></h6>
                     <p class="fs-3"><span class="badge badge-success">{{ $item->tipe }}</span></p>
                     <hr style="margin-top: 0px">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle"
-                                height="40px">
+                            @if ($item->pelanggan->photo)
+                                <img src="{{ asset('photo/' . $item->pelanggan->photo) }}" class="rounded-circle"
+                            height="40px">
+                            @else
+                                <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded-circle"
+                            height="40px">
+                            @endif
                         </div>
                         <div class="col-auto mt-1" style="margin-left:-20px;">
                             <a class="font-weight-bold fs-3">{{ $item->pelanggan->name }}</a><br>

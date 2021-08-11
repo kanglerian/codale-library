@@ -62,11 +62,16 @@
                                         {{ $no + 1 }}
                                     </td>
                                     <td><a href="{{ route('detailkelas.show', $item->id) }}" style="text-decoration: none">
+                                            @if ($item->thumbnail)
                                             <img src="{{ asset('thumbnail/'.$item->thumbnail) }}"
                                                 class="rounded" width="120px" height="68px">
+                                            @else
+                                            <img src="{{ asset('img-more/img01.jpg') }}"
+                                                class="rounded" width="120px" height="68px"> 
+                                            @endif
                                         </a></td>
                                     <td><p class="content-ellipsis"><b>{{ $item->judul}}</b></p>
-                                        <p class="content-ellipsis" style="margin-top: -40px">{!! $item->keterangan !!}</p>
+                                        <p class="content-ellipsis" style="margin-top: -15px">{!! $item->keterangan !!}</p>
                                     </td>
                                     <td>{{ $item->kelas->nama_kelas ?? 'Kelas tidak ada' }}</td>
                                     <td>{{ $item->creator->name ?? 'Creator tidak ada' }}</td>
