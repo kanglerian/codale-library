@@ -117,7 +117,7 @@
                         </div>
                         <div class="form-group">
                             <label>Thumbnail :</label>
-                            <input type="file" class="form-control-file" name="thumbnail" accept="image/*" required>
+                            <input type="file" class="form-control-file" name="thumbnail" accept="image/*">
                         </div>
                         <div class="form-group">
                             <label>Kode Video :</label>

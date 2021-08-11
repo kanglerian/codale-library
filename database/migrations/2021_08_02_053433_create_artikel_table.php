@@ -17,7 +17,7 @@ class CreateArtikelTable extends Migration
             $table->id();
             $table->string('judul_artikel');
             $table->integer('id_kategori')->nullable();
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->longText('isi');
             $table->timestamps();
         });

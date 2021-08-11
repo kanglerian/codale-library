@@ -74,8 +74,12 @@
                                                     style="text-decoration: none">{{ $item->nama_penulis }}</a></td>
                                             <td>{{ $item->profesi }}</td>
                                             <td>
-                                                <button type="button" data-id="{{ $item->id }}" class="btn btn-warning btn-block btn-sm btn-edit"><i
-                                                        class="fas fa-edit"></i> Edit</button>
+                                                <form action="{{ route('penulis.destroy',$item->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm btn-edit"><i
+                                                        class="fas fa-trash"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty
@@ -103,17 +107,17 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('penulis.store') }}" method="POST">
+            <form action="{{ route('penulis.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Nama Penulis :</label>
                         <input type="text" class="form-control" name="nama_penulis"
-                            placeholder="Masukan Nama Lengkap...">
+                            placeholder="Masukan Nama Lengkap..." required>
                     </div>
                     <div class="form-group">
                         <label>Photo :</label>
-                        <input type="text" class="form-control" name="photo" placeholder="Masukan URL Photo...">
+                        <input type="file" class="form-control-file" name="photo" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label>Profesi :</label>
@@ -132,35 +136,4 @@
         </div>
     </div>
 </div>
-<div class="modal fade" tabindex="-1" role="dialog" id="modalEditPenulis">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Penulis</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-isi"></div>
-        </div>
-    </div>
-</div>
 @endsection
-
-@push('after-script')
-<script>
-    $(".btn-edit").on('click', function() {
-        // alert($(this).data('id'));
-        let id = $(this).data('id');
-        $.ajax({
-            url: `penulis/${id}/edit`,
-            method: "GET",
-            success: function(data) {
-                $('#modalEditPenulis').find('.modal-isi').html(data);
-                $('#modalEditPenulis').modal('show');
-            },
-            error: function() {}
-        });
-    });
-</script>
-@endpush

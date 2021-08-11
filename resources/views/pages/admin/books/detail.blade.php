@@ -29,7 +29,12 @@
                 <div class="col-12 col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <img src="{{ asset('cover/'.$item->cover) }}" loading="lazy" class="img-fluid mb-3">
+                            @if ($item->cover)
+                                <img src="{{ asset('cover/'.$item->cover) }}" loading="lazy" class="img-fluid mb-3">
+                            @else
+                            <img src="{{ asset('img-more/banner.jpg') }}" loading="lazy" class="img-fluid mb-3"> 
+                            @endif
+                            
                             <a href="#" class="btn btn-primary btn-block disabled"><i class="fas fa-eye"></i> Lihat (E-Book
                                 Tersedia)</a>
                         </div>

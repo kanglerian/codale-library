@@ -9,7 +9,6 @@
             <h1>Profil Penulis</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard.index') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('buku.index') }}">Katalog</a></div>
                 <div class="breadcrumb-item"><a href="{{ route('penulis.index') }}">Penulis</a></div>
                 <div class="breadcrumb-item active">Profil Penulis</div>
             </div>

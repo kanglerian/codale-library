@@ -48,7 +48,7 @@ class AdminPenulisController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        // dd($data);
         if($request->photo){
 
             $photo = $request->file('photo');
@@ -58,7 +58,6 @@ class AdminPenulisController extends Controller
             $photo->move($tujuan,$namaFile);
 
             $data['photo'] = $namaFile;
-
         }
         Penulis::create($data);
 
