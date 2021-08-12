@@ -19,8 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $artikel = Article::all();
-        $banner = Iklan::all();
+        $artikel = Article::orderBy('id', 'DESC')->get();
+        $banner = Iklan::orderBy('id', 'DESC')->get();
         $info = Informasi::orderBy('id', 'ASC')->get();
         $data = Buku::orderBy('id', 'DESC')->take(3)->get();
         $kelas = Kelas::orderBy('id', 'DESC')->take(3)->get();
