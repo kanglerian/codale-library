@@ -45,7 +45,7 @@
                     <p class="section-lead">
                         {{ $item->kategori->nama_kategori ?? '' }} | {{ $item->penerbit->nama_penerbit ?? '' }}
                     </p>
-                    <p class="text-justify">{{ $item->deskripsi ?? 'Tidak ada deskripsi' }}</p>
+                    <p class="text-justify">{!!$item->deskripsi!!}</p>
                     @if (Auth::user()->pin == 44156)
                     <hr>
                     <h4 class="text-left font-weight-bold"> Rp {{ $item->harga }}</h4>
