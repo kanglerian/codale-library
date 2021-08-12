@@ -242,7 +242,7 @@
                     @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#">
+                            <a href="{{ route('kelas.show',$kls->id) }}">
                                 @if ($kls->gambar)
                                     <img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
                                 class="img-fluid rounded-double" />
@@ -259,9 +259,9 @@
                                 mendasar dari Laravel sampai dengan CRUD...
                                 <a href="#">selengkapnya</a>
                             </p>
-                            <button class="btn btn-primary btn-sm rounded-double">
+                            <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded-double">
                                 <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
-                            </button>
+                            </a>
                         </div>
                     </div>
                     @empty
