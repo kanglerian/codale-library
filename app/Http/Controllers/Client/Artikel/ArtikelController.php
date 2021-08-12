@@ -16,8 +16,8 @@ class ArtikelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $data = Article::all();
+    {
+        $data = Article::orderBy('id', 'DESC')->get();
         $kategori = Kategori::all();
         return view('pages.client.artikel.artikel')->with([
             'data' => $data,
@@ -54,7 +54,7 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        $podcast = Audio::with('artikel')->where('id_artikel',$id)->get();
+        $podcast = Audio::with('artikel')->where('id_artikel', $id)->get();
         $item = Article::findOrFail($id);
         return view('pages.client.artikel.detail-artikel')->with([
             'item' => $item,

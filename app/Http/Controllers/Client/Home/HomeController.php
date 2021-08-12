@@ -18,12 +18,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $artikel = Article::all();
         $banner = Iklan::all();
-        $info = Informasi::orderBy('id','ASC')->get();
-        $data = Buku::orderBy('id','DESC')->take(3)->get();
-        $kelas = Kelas::orderBy('id','DESC')->take(3)->get();
+        $info = Informasi::orderBy('id', 'ASC')->get();
+        $data = Buku::orderBy('id', 'DESC')->take(3)->get();
+        $kelas = Kelas::orderBy('id', 'DESC')->take(3)->get();
         return view('pages.client.landing.index')->with([
             'data' => $data,
             'info' => $info,

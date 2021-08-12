@@ -15,9 +15,9 @@ class KatalogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $kategori = Kategori::all();
-        $data = Buku::all();
+        $data = Buku::orderBy('id', 'DESC')->get();
         return view('pages.client.katalog.index')->with([
             'data' => $data,
             'kategori' => $kategori
