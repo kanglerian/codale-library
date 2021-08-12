@@ -11,8 +11,8 @@
                     <span class="font-weight-bold fs-2">{{ Auth::user()->name }}</span>
                     @endif
                 @else
-                    <img src="{{ asset('img-more/lerian.jpeg') }}" class="rounded-circle mr-1" height="35" />
-                <span class="font-weight-bold fs-2">Codale Library</span>
+                    <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded-circle mr-1" height="35" />
+                <span class="font-weight-bold fs-2">Halo, Apa kabar? 👋</span>
                 @endauth
             @endif
         </a>
