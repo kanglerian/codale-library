@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light shadow bg-white fs-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ asset('codalib.svg') }}" height="25" />
+            <img src="{{ asset('img-more/lerian.jpeg') }}" class="rounded-circle mr-1" height="35" />
+            <span class="font-weight-bold fs-2">Lerian Febriana</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
