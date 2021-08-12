@@ -241,7 +241,7 @@
                 <div class="row">
                     @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
-                        <div class="card card-body shadow-sm">{{ $kls->id * 20 + 100 }}
+                        <div class="card card-body shadow-sm">
                             <a href="#">
                                 @if ($kls->gambar)
                                     <img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
