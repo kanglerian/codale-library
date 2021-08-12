@@ -189,14 +189,11 @@
                                 
                             </a>
                             <a href="{{ route('katalog.show',$item->id) }}" class="text-dark">
-                                <h6 class="book-title mt-3 mb-2">
+                                <h6 class="book-title mt-3 mb-4">
                                     <b>{{ $item->judul_buku }}</b>
                                 </h6>
                             </a>
-                            <p class="fs-3">
-                                {{ $item->deskripsi ?? 'Tidak ada keterangan' }}
-                            </p>
-                            <a href="#" class="btn btn-primary btn-sm rounded-double">
+                            <a href="{{ route('katalog.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double">
                                 <i class="fas fa-check-circle mr-1"></i> Tersedia
                             </a>
                         </div>

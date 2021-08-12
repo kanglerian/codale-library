@@ -47,8 +47,7 @@
                         class="img-fluid rounded-double">
                         @endif
                     </a>
-                    <h6 class="book-title mt-3 mb-2"><b>{{ $item->judul_buku }}</b></h6>
-                    <p class="fs-3 book-desc">{{ $item->deskripsi ?? 'Tidak ada keterangan' }}</p>
+                    <h6 class="book-title mt-3 mb-4"><b>{{ $item->judul_buku }}</b></h6>
                     @if ($item->status == 'Pinjam')
                         <button class="btn btn-success btn-sm rounded-double"><i
                             class="fas fa-check-circle mr-1"></i>

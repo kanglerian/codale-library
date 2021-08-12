@@ -44,7 +44,6 @@
                         <h6 class="fs-4 mb-3"><i class="far fa-dot-circle mr-1"></i><b>{{ $pdc->judul }}</b></h6>
                         <audio controls>
                             <source src="{{ asset('podcast/'.$pdc->audio) }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
                         </audio>
                         <hr>
                     </div>
