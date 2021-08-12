@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <label>Deskripsi :</label>
                             <textarea class="form-control" name="deskripsi"
-                                placeholder="Masukan deskripsi buku..." value="{{ old('deskripsi') }}">{{ old('deskripsi') }}</textarea>
+                                placeholder="Masukan deskripsi buku..." value="Tidak ada keterangan">Tidak ada keterangan</textarea>
                         </div>
                         <div class="form-group">
                             <label>Penulis :</label>

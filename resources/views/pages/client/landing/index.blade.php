@@ -178,7 +178,7 @@
                     @forelse($data as $item)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
                         <div class="card card-body shadow-sm">
-                            <a href="#">
+                            <a href="{{ route('katalog.show',$item->id) }}">
                                 @if ($item->cover)
                                 <img src="{{ asset('cover/' . $item->cover)}}"
                                     class="img-fluid rounded-double" loading="lazy" />
@@ -188,7 +188,7 @@
                                 @endif
                                 
                             </a>
-                            <a href="#" class="text-dark">
+                            <a href="{{ route('katalog.show',$item->id) }}" class="text-dark">
                                 <h6 class="book-title mt-3 mb-2">
                                     <b>{{ $item->judul_buku }}</b>
                                 </h6>

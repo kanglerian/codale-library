@@ -53,7 +53,10 @@ class KatalogController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Buku::findOrFail($id);
+        return view('pages.client.katalog.detail')->with([
+            'item' => $item
+        ]);
     }
 
     /**

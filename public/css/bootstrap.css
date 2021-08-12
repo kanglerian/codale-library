@@ -16,7 +16,7 @@
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #fff;
-  --gray: #adadad;
+  --gray: #818181;
   --gray-dark: #343a40;
   --primary: #0096da;
   --secondary: #6c757d;
@@ -6091,6 +6091,10 @@ button.close {
 
 .bg-primary {
   background-color: #0096da !important;
+}
+
+.bg-gray {
+  background-color: #f8f8f8 !important;
 }
 
 .bg-codale {
