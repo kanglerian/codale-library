@@ -32,7 +32,7 @@
                             @if ($item->cover)
                                 <img src="{{ asset('cover/'.$item->cover) }}" loading="lazy" class="img-fluid mb-3">
                             @else
-                            <img src="{{ asset('img-more/banner.jpg') }}" loading="lazy" class="img-fluid mb-3"> 
+                            <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy" class="img-fluid mb-3"> 
                             @endif
                             
                             <a href="#" class="btn btn-primary btn-block disabled"><i class="fas fa-eye"></i> Lihat (E-Book
@@ -155,8 +155,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Deskripsi :</label>
-                                        <textarea class="form-control" name="deskripsi"
-                                            value="{{ $item->deskripsi }}">{{ $item->deskripsi }}</textarea>
+                                        <textarea class="form-control" name="deskripsi" id="editor"
+                                            value="{!!$item->deskripsi!!}">{!!$item->deskripsi!!}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer bg-whitesmoke br">

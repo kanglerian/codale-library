@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group">
                             <label>Deskripsi :</label>
-                            <textarea class="form-control" name="deskripsi"
+                            <textarea class="form-control" name="deskripsi" id="editor"
                                 placeholder="Masukan deskripsi buku..." value="Tidak ada keterangan">Tidak ada keterangan</textarea>
                         </div>
                         <div class="form-group">

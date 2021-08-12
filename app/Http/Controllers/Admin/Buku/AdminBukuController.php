@@ -9,6 +9,7 @@ use App\Models\Penerbit;
 use App\Models\Penulis;
 use App\Models\Pinjaman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBukuController extends Controller
 {
