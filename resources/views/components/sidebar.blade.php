@@ -4,7 +4,7 @@
             <a href="{{ route('dashboard.index') }}">Codale Library</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">CL</a>
+            <a href="{{ route('dashboard.index') }}">CL</a>
         </div>
         <ul class="sidebar-menu">
             <li class="@if (Request::segment(1)=='beranda' ) active @endif"><a class="nav-link"
@@ -34,15 +34,6 @@
                             Kembali</a></li>
                 </ul>
             </li>
-            {{-- <li class="nav-item dropdown @if (Request::segment(2)=='baca' ) active @endif">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i>
-                    <span>Pojok Baca</span></a>
-                <ul class="dropdown-menu">
-                    <li class="@if (Request::segment(2)=='baca' ) active @endif"><a class="nav-link"
-                            href="{{ route('baca.index') }}">Membaca Buku</a>
-                    </li>
-                </ul>
-            </li> --}}
             @endif
             @if (Auth::user()->pin === '44156')
             <li class="menu-header">Master Data</li>
@@ -133,11 +124,9 @@
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            @if (Auth::user()->pin === '44156')
             <a href="{{ url('/') }}" target="_blank" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-external-link-alt"></i> Go to Aplikasi
             </a>
-            @endif
             @if (Auth::user()->pin !== '44156')
             <a href="{{ route('buku.index') }}" target="_blank" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-shopping-cart"></i> Katalog

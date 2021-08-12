@@ -1,8 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light shadow bg-white fs-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ asset('img-more/lerian.jpeg') }}" class="rounded-circle mr-1" height="35" />
-            <span class="font-weight-bold fs-2">Lerian Febriana</span>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->photo)
+                        <img src="{{ asset('photo/'.Auth::user()->photo) }}" class="rounded-circle mr-1" height="35" />
+                    <span class="font-weight-bold fs-2">{{ Auth::user()->name }}</span>
+                    @else
+                        <img src="{{ asset('img-more/avatar-1.png') }}" class="rounded-circle mr-1" height="35" />
+                    <span class="font-weight-bold fs-2">{{ Auth::user()->name }}</span>
+                    @endif
+                @else
+                    <img src="{{ asset('img-more/lerian.jpeg') }}" class="rounded-circle mr-1" height="35" />
+                <span class="font-weight-bold fs-2">Codale Library</span>
+                @endauth
+            @endif
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -142,7 +142,7 @@
                         <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3">
+                    <div class="col-12 text-center fs-3" data-aos="fade-up">
                         <a href="{{ route('artikel.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                         <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3">
+                    <div class="col-12 text-center fs-3" data-aos="fade-up">
                         <a href="{{ route('katalog.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                         <p class="fs-3 text-center text-danger">Kelas belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3">
+                    <div class="col-12 text-center fs-3" data-aos="fade-up">
                         <a href="{{ route('kelas.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
