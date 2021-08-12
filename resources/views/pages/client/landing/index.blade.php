@@ -248,14 +248,9 @@
                                 class="img-fluid rounded-double" />
                                 @endif
                             </a>
-                            <h6 class="book-title mt-3 mb-2">
+                            <h6 class="book-title mt-3 mb-4">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>
-                            <p class="fs-3">
-                                Kelas Laravel di CodaleLibrary akan membahas hal-hal
-                                mendasar dari Laravel sampai dengan CRUD...
-                                <a href="#">selengkapnya</a>
-                            </p>
                             <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded-double">
                                 <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
                             </a>
