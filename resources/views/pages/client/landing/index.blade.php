@@ -30,7 +30,7 @@
             <div class="col-12 col-md-5 p-1 align-self-center mb-2 shalat">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card-body rounded-triple shadow-sm">
+                        <div class="card-body rounded-triple bg-white">
                             <h6 class="text-center mt-3" id="hari"><b><i class="far fa-calendar-alt mr-2"></i> Jadwal
                                     Shalat
                                     Kota Tasikmalaya</b></h6>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-md-2 align-self-center mb-2 channel d-none d-md-block">
-                <div class="card-body rounded-double shadow-sm">
+                <div class="card-body rounded-double bg-white">
                     <ul class="list-group">
                         @foreach ($info as $tv)
                         <li class="list-group-item border-0 fs-4" id="videoItem"
@@ -112,7 +112,7 @@
                 <div class="row">
                     @forelse($artikel as $art)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
-                        <div class="card card-body shadow-sm">
+                        <div class="card card-body">
                             <div class="text-center">
                                 <a href="{{ route('artikel.show',$art->id) }}">
                                     @if ($art->gambar)
@@ -124,14 +124,13 @@
                                     @endif
                                 </a>
                             </div>
-                            <h6 class="book-title mt-4 mb-4">
+                            <h6 class="book-title my-3">
                                 <b>{{ $art->judul_artikel }}</b>
                             </h6>
                             <div class="row justify-content-between">
                                 <div class="col-12">
                                     <a href="{{ route('artikel.show',$art->id) }}"
-                                        class="btn btn-primary btn-sm rounded-double px-2">
-                                        <i class="fas fa-book-open mr-1"></i> Baca selengkapnya
+                                        class="btn btn-primary btn-sm rounded-double px-3 fs-5">Baca selengkapnya
                                     </a>
                                 </div>
                             </div>
@@ -177,7 +176,7 @@
                 <div class="row">
                     @forelse($data as $item)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
-                        <div class="card card-body shadow-sm">
+                        <div class="card card-body">
                             <a href="{{ route('katalog.show',$item->id) }}">
                                 @if ($item->cover)
                                 <img src="{{ asset('cover/' . $item->cover)}}"
@@ -193,7 +192,7 @@
                                     <b>{{ $item->judul_buku }}</b>
                                 </h6>
                             </a>
-                            <a href="{{ route('katalog.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double">
+                            <a href="{{ route('katalog.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double fs-5">
                                 <i class="fas fa-check-circle mr-1"></i> Tersedia
                             </a>
                         </div>
@@ -238,7 +237,7 @@
                 <div class="row">
                     @forelse($kelas as $kls)
                     <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
-                        <div class="card card-body shadow-sm">
+                        <div class="card card-body">
                             <a href="{{ route('kelas.show',$kls->id) }}">
                                 @if ($kls->gambar)
                                     <img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light shadow bg-white fs-3 fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-white fs-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
             @if (Route::has('login'))
