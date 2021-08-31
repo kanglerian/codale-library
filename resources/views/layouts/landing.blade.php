@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/apps.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}" />
-    <title>CodaleLibrary | Tingkatkan Budaya Literasi Bagi Bangsa</title>
+    <title>CodaleLibrarys | Tingkatkan Budaya Literasi Bagi Bangsa</title>
     @stack('after-style')
 </head>
 
