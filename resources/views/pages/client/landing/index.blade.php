@@ -250,7 +250,7 @@
                             <h6 class="book-title mt-3 mb-4">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>
-                            <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded-double">
+                            <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded-double fs-5">
                                 <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
                             </a>
                         </div>
