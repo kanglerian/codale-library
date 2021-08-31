@@ -32,7 +32,7 @@
                     <div class="col-12">
                         <div class="card-body rounded-triple shadow-sm">
                             <h6 class="text-center mt-3" id="hari"><b><i class="far fa-calendar-alt mr-2"></i> Jadwal
-                                    Shalat
+                                    Shalats
                                     Kota Tasikmalaya</b></h6>
                             <h2 id="coba"></h2>
                             <div class="table-responsive">
