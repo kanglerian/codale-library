@@ -30,7 +30,7 @@
             <div class="col-12 col-md-5 p-1 align-self-center mb-2 shalat">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card-body rounded-triple bg-white">
+                        <div class="card-body rounded bg-white">
                             <h6 class="text-center mt-3" id="hari"><b><i class="far fa-calendar-alt mr-2"></i> Jadwal
                                     Shalat
                                     Kota Tasikmalaya</b></h6>
@@ -54,7 +54,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="5"><button
-                                                class="btn btn-primary rounded-double btn-block btn-sm fs-3"
+                                                class="btn btn-primary rounded btn-block btn-sm fs-3"
                                                 id="liveTime">12:52
                                                 WIB</button></td>
                                     </tr>
@@ -66,17 +66,17 @@
             </div>
             <div class="col-12 col-md-5 align-self-center mb-2 kajian">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item rounded-triple" id="videoLive"
+                    <iframe class="embed-responsive-item rounded" id="videoLive"
                         src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-2 align-self-center mb-2 channel d-none d-md-block">
-                <div class="card-body rounded-double bg-white">
+                <div class="card-body rounded bg-white">
                     <ul class="list-group">
                         @foreach ($info as $tv)
                         <li class="list-group-item border-0 fs-4" id="videoItem"
                             onclick="changeVideo('{{ $tv->video }}')"><button
-                                class="btn btn-primary btn-sm btn-block rounded-double fs-5">{{ $tv->judul }}</button>
+                                class="btn btn-primary btn-sm btn-block rounded fs-5">{{ $tv->judul }}</button>
                         </li>
                         @endforeach
                     </ul>
@@ -100,7 +100,7 @@
                                                                           my-4
                                                                           py-1
                                                                           px-2
-                                                                          rounded-triple
+                                                                          rounded
                                                                         ">
                         <div class="col-12">
                             <h6 class="my-2 text-white">
@@ -117,10 +117,10 @@
                                 <a href="{{ route('artikel.show',$art->id) }}">
                                     @if ($art->gambar)
                                     <img src="{{ asset('gambar/'.$art->gambar) }}" loading="lazy"
-                                    class="img-fluid" /> 
+                                    class="img-fluid rounded" /> 
                                     @else
                                     <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy"
-                                    class="img-fluid" /> 
+                                    class="img-fluid rounded" /> 
                                     @endif
                                 </a>
                             </div>
@@ -130,7 +130,7 @@
                             <div class="row justify-content-between">
                                 <div class="col-12">
                                     <a href="{{ route('artikel.show',$art->id) }}"
-                                        class="btn btn-primary btn-sm rounded-double px-3 fs-5">Baca selengkapnya
+                                        class="btn btn-primary btn-sm px-3 fs-5">Baca selengkapnya
                                     </a>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                                                                           my-4
                                                                           py-1
                                                                           px-2
-                                                                          rounded-triple
+                                                                          rounded
                                                                         ">
                         <div class="col-12">
                             <h6 class="my-2 text-white">
@@ -180,10 +180,10 @@
                             <a href="{{ route('katalog.show',$item->id) }}">
                                 @if ($item->cover)
                                 <img src="{{ asset('cover/' . $item->cover)}}"
-                                    class="img-fluid rounded-double" loading="lazy" />
+                                    class="img-fluid rounded" loading="lazy" />
                                 @else
                                 <img src="{{ asset('img-more/img01.jpg')}}"
-                                    class="img-fluid rounded-double" loading="lazy" />
+                                    class="img-fluid rounded" loading="lazy" />
                                 @endif
                                 
                             </a>
@@ -192,7 +192,7 @@
                                     <b>{{ $item->judul_buku }}</b>
                                 </h6>
                             </a>
-                            <a href="{{ route('katalog.show',$item->id) }}" class="btn btn-primary btn-sm rounded-double fs-5">
+                            <a href="{{ route('katalog.show',$item->id) }}" class="btn btn-primary btn-sm rounded fs-5">
                                 <i class="fas fa-check-circle mr-1"></i> Tersedia
                             </a>
                         </div>
@@ -225,7 +225,7 @@
                                                                           my-4
                                                                           py-1
                                                                           px-2
-                                                                          rounded-triple
+                                                                          rounded
                                                                         ">
                         <div class="col-12">
                             <h6 class="my-2 text-white">
@@ -241,16 +241,16 @@
                             <a href="{{ route('kelas.show',$kls->id) }}">
                                 @if ($kls->gambar)
                                     <img src="{{ asset('gambar/'.$kls->gambar) }}" loading="lazy"
-                                class="img-fluid rounded-double" />
+                                class="img-fluid rounded" />
                                 @else
                                     <img src="{{ asset('img-more/img01.jpg') }}" loading="lazy"
-                                class="img-fluid rounded-double" />
+                                class="img-fluid rounded" />
                                 @endif
                             </a>
                             <h6 class="book-title mt-3 mb-4">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>
-                            <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded-double fs-5">
+                            <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded fs-5">
                                 <i class="fas fa-laptop-code mr-1"></i> Ikuti Kelas
                             </a>
                         </div>
