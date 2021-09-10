@@ -27,16 +27,16 @@
 <section class="katalog">
     <div class="container">
         <div class="row justify-content-center mx-1 px-2">
-            <div class="col-12 col-md-5 p-1 align-self-center mb-2 shalat">
+            <div class="col-12 col-md-4 p-1 align-self-center mb-2 shalat">
                 <div class="row">
                     <div class="col-12">
                         <div class="card-body rounded bg-white">
-                            <h6 class="text-center mt-3" id="hari"><b><i class="far fa-calendar-alt mr-2"></i> Jadwal
+                            <h6 class="text-center mt-3 fs-4" id="hari"><b><i class="far fa-calendar-alt mr-2"></i> Jadwal
                                     Shalat
                                     Kota Tasikmalaya</b></h6>
                             <h2 id="coba"></h2>
                             <div class="table-responsive">
-                                <table class="table text-center fs-3">
+                                <table class="table text-center fs-4">
                                     <tr>
                                         <th>Shubuh</th>
                                         <th>Dzuhur</th>
@@ -53,8 +53,8 @@
 
                                     </tr>
                                     <tr>
-                                        <td colspan="5"><button
-                                                class="btn btn-primary rounded btn-block btn-sm fs-3"
+                                        <td colspan="5" class="fs-5"><button
+                                                class="btn btn-light rounded btn-block btn-sm fs-3"
                                                 id="liveTime">12:52
                                                 WIB</button></td>
                                     </tr>
@@ -70,13 +70,13 @@
                         src="https://www.youtube.com/embed/renl8dYqTKA" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-md-2 align-self-center mb-2 channel d-none d-md-block">
+            <div class="col-md-3 align-self-center mb-2 channel d-none d-md-block">
                 <div class="card-body rounded bg-white">
                     <ul class="list-group">
                         @foreach ($info as $tv)
-                        <li class="list-group-item border-0 fs-4" id="videoItem"
+                        <li class="list-group-item border-0 fs-5" id="videoItem"
                             onclick="changeVideo('{{ $tv->video }}')"><button
-                                class="btn btn-primary btn-sm btn-block rounded fs-5">{{ $tv->judul }}</button>
+                                class="btn btn-primary btn-sm btn-block rounded fs-5">🔴 {{ $tv->judul }}</button>
                         </li>
                         @endforeach
                     </ul>
@@ -124,7 +124,7 @@
                                     @endif
                                 </a>
                             </div>
-                            <h6 class="book-title my-3">
+                            <h6 class="book-title my-3 fs-3">
                                 <b>{{ $art->judul_artikel }}</b>
                             </h6>
                             <div class="row justify-content-between">
@@ -141,7 +141,7 @@
                         <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3" data-aos="fade-up">
+                    <div class="col-12 text-center fs-4" data-aos="fade-up">
                         <a href="{{ route('artikel.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                                 
                             </a>
                             <a href="{{ route('katalog.show',$item->id) }}" class="text-dark">
-                                <h6 class="book-title mt-3 mb-4">
+                                <h6 class="book-title mt-3 mb-4 fs-3">
                                     <b>{{ $item->judul_buku }}</b>
                                 </h6>
                             </a>
@@ -202,7 +202,7 @@
                         <p class="fs-3 text-center text-danger">Buku belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3" data-aos="fade-up">
+                    <div class="col-12 text-center fs-4" data-aos="fade-up">
                         <a href="{{ route('katalog.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                                 class="img-fluid rounded" />
                                 @endif
                             </a>
-                            <h6 class="book-title mt-3 mb-4">
+                            <h6 class="book-title mt-3 mb-4 fs-3">
                                 <b>{{ $kls->nama_kelas }}</b>
                             </h6>
                             <a href="{{ route('kelas.show',$kls->id) }}" class="btn btn-primary btn-sm rounded fs-5">
@@ -260,7 +260,7 @@
                         <p class="fs-3 text-center text-danger">Kelas belum tersedia</p>
                     </div>
                     @endforelse
-                    <div class="col-12 text-center fs-3" data-aos="fade-up">
+                    <div class="col-12 text-center fs-4" data-aos="fade-up">
                         <a href="{{ route('kelas.index') }}">Lihat selengkapnya</a>
                     </div>
                 </div>
@@ -310,8 +310,7 @@
         s = (s < 10) ? "0" + s : s;
 
         var time = h + ":" + m + ":" + s + " " + session;
-        document.getElementById("liveTime").innerText = time;
-        document.getElementById("liveTime").textContent = time;
+        document.getElementById("liveTime").textContent = "⏰ " + time;
 
         setTimeout(showTime, 1000);
 

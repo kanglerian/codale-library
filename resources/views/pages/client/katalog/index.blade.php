@@ -47,12 +47,12 @@
                         class="img-fluid rounded-double">
                         @endif
                     </a>
-                    <h6 class="book-title mt-3 mb-4"><b>{{ $item->judul_buku }}</b></h6>
+                    <h6 class="book-title mt-3 mb-4 fs-3"><b>{{ $item->judul_buku }}</b></h6>
                     @if ($item->status == 'Pinjam')
-                        <button class="btn btn-success btn-sm rounded-double"><i
+                        <button class="btn btn-success btn-sm rounded-double fs-4"><i
                             class="fas fa-check-circle mr-1"></i>
                     @else
-                        <button class="btn btn-primary btn-sm rounded-double"><i
+                        <button class="btn btn-primary btn-sm rounded-double fs-4"><i
                             class="fas fa-check-circle mr-1"></i>
                     @endif
                         {{ $item->status }}</button>
